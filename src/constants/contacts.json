@@ -1,0 +1,30 @@
+[
+  {
+    "Office": "Academics",
+    "Extension": [263],
+    "Email ID": [
+      "academic@jaipur.manipal.edu",
+      "ams@jaipur.manipal.edu"
+    ]
+  },
+  {
+    "Office": "Admissions",
+    "Extension": [142, 257, 297],
+    "Email ID": ["admissions@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Controller of Examinations",
+    "Extension": [204],
+    "Email ID": ["coe@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Chief Warden Office",
+    "Extension": [108, 493],
+    "Email ID": ["office.chiefwarden@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Chief Office (General Services & Administration)",
+    "Extension": [119, 105],
+    "Email ID": ["admin.office@jaipur.manipal.edu"]
+  }
+]
