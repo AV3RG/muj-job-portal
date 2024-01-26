@@ -1,0 +1,93 @@
+{
+  "Faculty of Arts": {
+    "School of Media and Communication": [
+      "Department of Journalism and Mass Communication"
+    ],
+
+    "School of Humanity and Social Sciences": [
+      "Department of Languages,Literature and Cultural Studies",
+      "Department of Arts",
+      "Department of Economics",
+      "Department of Psychology"
+    ]
+  },
+
+  "Faculty of Design": {
+    "School of design and Art": [
+      "Department of Interior Design",
+      "Department of Fine Arts",
+      "Department of Fashion Design"
+    ],
+    "School of Architecture and Design": [
+      "Department of Architecture"
+    ]
+  },
+
+  "Faculty of Engineering": {
+    "School of Computer Science and Engineering": [
+      "Department of Computer Science and Engineering",
+      "Department of AI&ML"
+    ],
+    "School of Information Technology": [
+      "Department of Information Technology",
+      "Department of Data Science and Engineering"
+    ],
+    "School of Computers and Communication Engineering": [
+      "Department of Computers and Communication Engineering",
+      "Department of IoT & Intelligent Systems"
+    ],
+
+    "School of Civil and Chemical Engineering": [
+      "Department of Civil Engineering",
+      "Department of Chemical Engineering",
+      "Department of Biotechnology & Chemical Engineering"
+    ],
+
+    "School of Automobile, Mechatronics, Mechanical": [
+      "Department of Automobile Engineering",
+      "Department of Mechanical Engineering",
+      "Department of Mechatronics Engineering"
+    ],
+    "School of Electrical, Electronics and Communication Engineering": [
+      "Department of Electrical Engineering",
+      "Department of Electronics and Communication Engineering"
+    ]
+  },
+
+  "Faculty of Science": {
+    "School of Basic Sciences": [
+      "Department of Mathematics and Statistics",
+      "Department of Computer Applications",
+      "Department of Chemistry",
+      "Department of Bio-Sciences",
+      "Department of Physics"
+    ]
+  },
+
+  "Faculty of Management and Commerce": {
+    "School of Hospitality and Tourism Management": [
+      "Department of Hotel Management"
+    ],
+    "School of Business and Commerce": [
+      "Department of Business Administration",
+      "Department of Commerce"
+    ],
+    "TAPMI School of Business": [
+      "Department of Management",
+      "Department of Management (MBA Program)"
+    ]
+  },
+
+  "Faculty of Law": {
+    "School of Law": ["Department of Law"]
+  },
+
+  "Directorate of Online Education": {
+    "Directorate of Online Education": [
+      "Management-DoE",
+      "Commerce-DoE",
+      "Computer Application-DoE",
+      "Journalism and Mass Communication-DoE"
+    ]
+  }
+}

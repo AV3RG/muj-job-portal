@@ -5,18 +5,10 @@ import { useForm } from "react-hook-form"
 import * as zod from "zod"
 import formSchema from "@/constants/form/formSchema";
 import defaultValues from "@/constants/form/defaultValues";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
-import ApplicationInfo from "@/components/form/academic/ApplicationInfo";
+import { Form } from "@/components/ui/form"
+import ApplicationInfo from "@/components/form/academic/application-info/ApplicationInfo";
 
-export default async function Academic() {
+export default function Academic() {
 
     const form = useForm<zod.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -24,16 +16,16 @@ export default async function Academic() {
     })
 
     function onSubmit(values: zod.infer<typeof formSchema>) {
-        return <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <ApplicationInfo/>
-            </form>
-        </Form>
+        console.log(values)
     }
 
     return <>
         <div className={"mt-12"}>
-            <ApplicationInfo/>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <ApplicationInfo form={form}/>
+                </form>
+            </Form>
         </div>
     </>
 
