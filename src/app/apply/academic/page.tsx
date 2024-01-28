@@ -6,7 +6,8 @@ import * as zod from "zod"
 import formSchema from "@/constants/form/formSchema";
 import defaultValues from "@/constants/form/defaultValues";
 import { Form } from "@/components/ui/form"
-import ApplicationInfo from "@/components/form/academic/application-info/ApplicationInfo";
+import ApplicationInfo from "@/components/form/academic/ApplicationInfo";
+import PersonalInfo from "@/components/form/academic/PersonalInfo";
 
 export default function Academic() {
 
@@ -23,7 +24,8 @@ export default function Academic() {
         <div className={"mt-12"}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <ApplicationInfo form={form}/>
+                    <ApplicationInfo form={form} index={1}/>
+                    <PersonalInfo form={form} index={2}/>
                 </form>
             </Form>
         </div>

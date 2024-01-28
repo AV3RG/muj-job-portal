@@ -3,14 +3,16 @@ import {FormLabel} from "@/components/ui/form";
 import React, {useMemo} from "react";
 import faculties from "@/constants/faculties.json"
 import { Input } from "@/components/ui/input";
+import applicationInfoConstants from "@/constants/field/applicationInfoConstants";
+
 
 export default function School(props: FormInputProps) {
     if (!props.field) {
         throw Error("field is undefined or null")
     }
 
-    const facultyValue = props.form.watch("faculty")
-    const departmentValue = props.form.watch("department")
+    const facultyValue = props.form.watch(applicationInfoConstants.faculty.name)
+    const departmentValue = props.form.watch(applicationInfoConstants.department.name)
 
     const school = useMemo(() => {
         if (facultyValue && departmentValue) {
@@ -23,7 +25,6 @@ export default function School(props: FormInputProps) {
     }, [facultyValue, departmentValue])
 
     return <>
-        <FormLabel htmlFor={props.fieldName}>School</FormLabel>
-        <Input placeholder={"Select Faculty & Department"} value={school ? school : "Select Faculty & Department"} id={props.fieldName}/>
+        <Input placeholder={"Select Faculty & Department"} value={school ? school : "Select Faculty & Department"} id={props.constants.name}/>
     </>
 }
