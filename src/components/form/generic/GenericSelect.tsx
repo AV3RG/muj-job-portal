@@ -1,16 +1,15 @@
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {FormControl} from "@/components/ui/form";
 import React from "react";
-import FormSelectProps from "@/components/types/FormSelectProps";
+import FormSelectProps from "@/components/types/props/FormSelectProps";
+import formFieldAssertion from "@/util/assert/formFieldAssertion";
 
 export default function GenericSelect(props: FormSelectProps) {
 
-    if (!props.field) {
-        throw Error("field is undefined or null")
-    }
+    const field = formFieldAssertion(props.field)
 
     return <>
-        <Select onValueChange={props.field.onChange} defaultValue={props.field.value}>
+        <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
                 <SelectTrigger>
                     <SelectValue placeholder={props.constants.placeholder}/>

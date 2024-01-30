@@ -1,12 +1,12 @@
-import FormInputProps from "@/components/types/FormInputProps";
+import FormInputProps from "@/components/types/props/FormInputProps";
 import { Input } from "@/components/ui/input";
+import formFieldAssertion from "@/util/assert/formFieldAssertion";
 
 export default function GenericInput(props: FormInputProps) {
-    if (!props.field) {
-        throw Error("field is undefined or null")
-    }
+
+    const field = formFieldAssertion(props.field)
 
     return <>
-        <Input placeholder={props.constants.placeholder} id={props.constants.name}/>
+        <Input placeholder={props.constants.placeholder} id={props.constants.name} {...props.field} defaultValue={field.value} />
     </>
 }

@@ -1,4 +1,4 @@
-import FormInputProps from "@/components/types/FormInputProps";
+import FormInputProps from "@/components/types/props/FormInputProps";
 import {FormControl, FormLabel} from "@/components/ui/form";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import React, {useMemo} from "react";
@@ -8,6 +8,9 @@ import applicationInfoConstants from "@/constants/field/applicationInfoConstants
 export default function Department(props: FormInputProps) {
     if (!props.field) {
         throw Error("field is undefined or null")
+    }
+    if (!props.form) {
+        throw Error("form is undefined or null")
     }
 
     const facultyValue = props.form.watch(applicationInfoConstants.faculty.name)

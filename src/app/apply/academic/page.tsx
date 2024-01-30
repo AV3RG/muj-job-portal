@@ -21,11 +21,14 @@ export default function Academic() {
     }
 
     return <>
-        <div className={"mt-12"}>
+        <div className={"mt-12 px-12 md:px-24"}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <ApplicationInfo form={form} index={1}/>
-                    <PersonalInfo form={form} index={2}/>
+                    <div className={"flex flex-col gap-y-2"}>
+                        <div className={"text-center text-xl md:text-3xl "}>Job Application Form</div>
+                        <ApplicationInfo form={form} index={1}/>
+                        <PersonalInfo form={form} index={2}/>
+                    </div>
                 </form>
             </Form>
         </div>

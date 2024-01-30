@@ -1,10 +1,10 @@
 import {ControllerRenderProps, FieldValues, UseFormReturn} from "react-hook-form";
-import FormFieldConstants from "@/components/types/FormFieldConstants";
+import FormAddressConstants from "@/components/types/constants/FormAddressConstants";
 
-type FormInputProps = {
+type FormAddressProps = {
     field?: ControllerRenderProps<FieldValues, string>,
     form?: UseFormReturn<any, undefined, any>,
-    constants: FormFieldConstants,
+    constants: FormAddressConstants,
 }
 
-export default FormInputProps;
+export default FormAddressProps;

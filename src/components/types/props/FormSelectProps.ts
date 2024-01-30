@@ -1,4 +1,4 @@
-import FormInputProps from "@/components/types/FormInputProps";
+import FormInputProps from "@/components/types/props/FormInputProps";
 
 type FormSelectProps = FormInputProps & { options: string[] }
 

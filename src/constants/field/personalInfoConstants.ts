@@ -1,4 +1,5 @@
-import FormFieldConstants from "@/components/types/FormFieldConstants";
+import FormAddressConstants from "@/components/types/constants/FormAddressConstants";
+import FormFieldConstants from "@/components/types/constants/FormFieldConstants";
 
 const fieldNamePrefix = 'personalInfo';
 
@@ -10,6 +11,8 @@ const personalInfoConstants: {
     gender: FormFieldConstants,
     mob: FormFieldConstants,
     email: FormFieldConstants,
+    currentAddress: FormAddressConstants,
+    permanentAddress: FormAddressConstants,
 
 } = {
     firstName: {
@@ -53,6 +56,70 @@ const personalInfoConstants: {
         label: 'Email ID',
         tooltip: 'Enter your personal email id. This will be used for communication purposes',
         placeholder: 'Email ID'
+    },
+    currentAddress: {
+        country: {
+            name: `${fieldNamePrefix}.currentResidence.country`,
+            label: 'Country',
+            tooltip: 'Enter your country of residence',
+            placeholder: 'Country',
+            commandInputPlaceholder: 'Search Country...',
+            commandEmptyText: 'No Countries Found'
+        },
+        state: {
+            name: `${fieldNamePrefix}.currentResidence.state`,
+            label: 'State',
+            tooltip: 'Enter your state of residence',
+            placeholder: 'State',
+            commandInputPlaceholder: 'Search State...',
+            commandEmptyText: 'No States Found'
+        },
+        city: {
+            name: `${fieldNamePrefix}.currentResidence.city`,
+            label: 'City',
+            tooltip: 'Enter your city of residence',
+            placeholder: 'City',
+            commandInputPlaceholder: 'Search City...',
+            commandEmptyText: 'No Cities Found'
+        },
+        address: {
+            name: `${fieldNamePrefix}.currentResidence.address`,
+            label: 'Address',
+            tooltip: 'Enter your current address of residence',
+            placeholder: 'Full Address',
+        },
+    },
+    permanentAddress: {
+        country: {
+            name: `${fieldNamePrefix}.permanentResidence.country`,
+            label: 'Country',
+            tooltip: 'Enter your country of residence',
+            placeholder: 'Country',
+            commandInputPlaceholder: 'Search Country...',
+            commandEmptyText: 'No Countries Found'
+        },
+        state: {
+            name: `${fieldNamePrefix}.permanentResidence.state`,
+            label: 'State',
+            tooltip: 'Enter your state of residence',
+            placeholder: 'State',
+            commandInputPlaceholder: 'Search State...',
+            commandEmptyText: 'No States Found'
+        },
+        city: {
+            name: `${fieldNamePrefix}.permanentResidence.city`,
+            label: 'City',
+            tooltip: 'Enter your city of residence',
+            placeholder: 'City',
+            commandInputPlaceholder: 'Search City...',
+            commandEmptyText: 'No Cities Found'
+        },
+        address: {
+            name: `${fieldNamePrefix}.permanentResidence.address`,
+            label: 'Address',
+            tooltip: 'Enter your current address of residence',
+            placeholder: 'Full Address'
+        },
     }
 }
 

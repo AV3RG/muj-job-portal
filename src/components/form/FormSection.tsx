@@ -1,21 +1,24 @@
-import FormSectionProps from "@/components/types/FormSectionProps";
-import React, {Children, cloneElement} from "react";
+import FormSectionProps from "@/components/types/props/FormSectionProps";
+import React, {Children} from "react";
 import {FormField, FormLabel, FormMessage} from "@/components/ui/form";
+import formFieldNameAssertion from "@/util/assert/formFieldNameAssertion";
 
 export default function FormSection(props: FormSectionProps) {
+
     return <>
         {Children.map(props.children, child => {
-            const fieldName = child.props.constants.name
-            if (!fieldName) {
-                throw new Error("Field name is required")
+            if (child.props.constants === undefined) {
+                //Probably a div or something
+                return child
             }
+            const fieldName = formFieldNameAssertion(child.props.constants.name)
             return <>
                 <FormField
                     name={fieldName}
                     control={props.form.control}
                     render={({ field }) : React.ReactElement => {
                         return <div>
-                            <FormLabel>{child.props.constants.label}</FormLabel>
+                            {!child.props.noLabel && <FormLabel>{child.props.constants.label}</FormLabel>}
                             {React.cloneElement(child, {field: field, form: props.form})}
                             <FormMessage/>
                         </div>

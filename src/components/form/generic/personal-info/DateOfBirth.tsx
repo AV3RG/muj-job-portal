@@ -1,4 +1,4 @@
-import FormInputProps from "@/components/types/FormInputProps";
+import FormInputProps from "@/components/types/props/FormInputProps";
 import {FormControl} from "@/components/ui/form";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {Calendar} from "@/components/ui/calendar";

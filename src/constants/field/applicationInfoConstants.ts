@@ -1,4 +1,4 @@
-import FormFieldConstants from "@/components/types/FormFieldConstants";
+import FormFieldConstants from "@/components/types/constants/FormFieldConstants";
 
 const fieldNamePrefix = 'applicationInfo';
 
