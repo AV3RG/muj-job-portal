@@ -7,6 +7,6 @@ export default function GenericInput(props: FormInputProps) {
     const field = formFieldAssertion(props.field)
 
     return <>
-        <Input placeholder={props.constants.placeholder} id={props.constants.name} {...props.field} defaultValue={field.value} />
+        <Input placeholder={props.constants.placeholder} id={props.constants.name} defaultValue={field.value} {...props.field} {...props.passDownProps} />
     </>
 }
