@@ -13,7 +13,11 @@ const personalInfoConstants: {
     email: FormFieldConstants,
     currentAddress: FormAddressConstants,
     permanentAddress: FormAddressConstants,
-
+    sameAddress: FormFieldConstants,
+    religion: FormFieldConstants,
+    maritalStatus: FormFieldConstants,
+    aadhaarCard: FormFieldConstants,
+    panCard: FormFieldConstants,
 } = {
     firstName: {
         name: `${fieldNamePrefix}.firstName`,
@@ -120,7 +124,37 @@ const personalInfoConstants: {
             tooltip: 'Enter your current address of residence',
             placeholder: 'Full Address'
         },
-    }
+    },
+    sameAddress: {
+        name: `${fieldNamePrefix}.sameAddress`,
+        label: 'Same as Current Address',
+        tooltip: 'Check this box if your permanent address is same as your current address',
+        placeholder: 'Same as Current Address'
+    },
+    religion: {
+        name: `${fieldNamePrefix}.religion`,
+        label: 'Religion',
+        tooltip: 'Enter your religion',
+        placeholder: 'Religion'
+    },
+    maritalStatus: {
+        name: `${fieldNamePrefix}.maritalStatus`,
+        label: 'Marital Status',
+        tooltip: 'Enter your marital status',
+        placeholder: 'Marital Status'
+    },
+    aadhaarCard: {
+        name: `${fieldNamePrefix}.aadhaarCard`,
+        label: 'Aadhaar Card',
+        tooltip: 'Enter your Aadhaar Card Number',
+        placeholder: 'Aadhaar Card Number'
+    },
+    panCard: {
+        name: `${fieldNamePrefix}.panCard`,
+        label: 'PAN Card',
+        tooltip: 'Enter your PAN Card Number',
+        placeholder: 'PAN Card Number'
+    },
 }
 
 export default personalInfoConstants

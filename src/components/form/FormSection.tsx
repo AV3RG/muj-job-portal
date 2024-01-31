@@ -7,9 +7,16 @@ export default function FormSection(props: FormSectionProps) {
 
     return <>
         {Children.map(props.children, child => {
+            if (child === null || child === undefined) {
+                return <></>
+            }
             if (child.props.constants === undefined) {
                 //Probably a div or something
                 return child
+            }
+            if (child.props.customRender) {
+                //Still need to attach custom props
+                return React.cloneElement(child, {form: props.form})
             }
             const fieldName = formFieldNameAssertion(child.props.constants.name)
             return <>

@@ -13,8 +13,15 @@ import GenericButtonGroup from "@/components/form/generic/GenericButtonGroup";
 import genders from "@/constants/genders.json";
 import { Separator } from "@/components/ui/separator";
 import AddressCombo from "@/components/form/generic/personal-info/AddressCombo";
+import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
+import GenericSelect from "@/components/form/generic/GenericSelect";
+import religions from "@/constants/religions.json";
+import maritalStatuses from "@/constants/marital_status.json";
 
 export default function PersonalInfo(props: FormAccordionProps) {
+
+    const sameAddress = props.form.watch(personalInfoConstants.sameAddress.name)
+
     return <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
             <AccordionTrigger>{props.index}. Personal Information</AccordionTrigger>
@@ -27,8 +34,13 @@ export default function PersonalInfo(props: FormAccordionProps) {
                     <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
                     <GenericInput constants={personalInfoConstants.email}/>
                     <Separator orientation={"horizontal"}/>
-                    <AddressCombo constants={personalInfoConstants.currentAddress} />
-
+                    <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true}/>
+                    <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
+                    {sameAddress || <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true}/>}
+                    <GenericSelect constants={personalInfoConstants.religion} options={religions}/>
+                    <GenericSelect constants={personalInfoConstants.maritalStatus} options={maritalStatuses}/>
+                    <GenericInput constants={personalInfoConstants.aadhaarCard}/>
+                    <GenericInput constants={personalInfoConstants.panCard}/>
                 </FormSection>
             </AccordionContent>
         </AccordionItem>

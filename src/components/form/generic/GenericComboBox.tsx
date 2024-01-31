@@ -6,19 +6,21 @@ import {Check, ChevronsUpDown} from "lucide-react";
 import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/components/ui/command";
 import React from "react";
 import formFormAssertion from "@/util/assert/formFormAssertion";
+import formFieldAssertion from "@/util/assert/formFieldAssertion";
 
-export default function ComboBox(props: FormComboBoxProps) {
+export default function GenericComboBox(props: FormComboBoxProps) {
 
     const form = formFormAssertion(props.form)
 
-    const [open, setOpen] = React.useState(false)
+
+    const field = formFieldAssertion(props.field)
 
     return <>
-        <Popover open={open}>
+        <Popover>
             <PopoverTrigger asChild>
                 <FormControl>
-                    <Button>
-                        {props.constants.placeholder}
+                    <Button variant={"outline"} role={"combobox"}>
+                        {field.value || props.constants.placeholder}
                         <ChevronsUpDown/>
                     </Button>
                 </FormControl>
@@ -31,17 +33,13 @@ export default function ComboBox(props: FormComboBoxProps) {
                         {props.options.map((option, index) => {
                             return <CommandItem
                                 value={option}
-                                key={index}
-                                onClick={async () => {
+                                key={option}
+                                onSelect={async () => {
                                     form.setValue(props.constants.name, option)
-                                    setTimeout(() => {
-                                        setOpen(false)
-                                    }, 500)
                                 }}
                             >
-                                <Check>
-                                    {option}
-                                </Check>
+                                <Check/>
+                                {option}
                             </CommandItem>
                         })}
                     </CommandGroup>

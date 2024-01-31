@@ -1,7 +1,5 @@
 import FormInputProps from "@/components/types/props/FormInputProps";
 
-type FormCheckBoxProps = FormInputProps & {
-    noLabel: boolean
-}
+type FormCheckBoxProps = FormInputProps
 
 export default FormCheckBoxProps

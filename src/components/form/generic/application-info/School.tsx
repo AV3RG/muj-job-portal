@@ -4,7 +4,6 @@ import faculties from "@/constants/faculties.json"
 import { Input } from "@/components/ui/input";
 import applicationInfoConstants from "@/constants/field/applicationInfoConstants";
 
-
 export default function School(props: FormInputProps) {
     if (!props.field) {
         throw Error("field is undefined or null")
@@ -15,18 +14,19 @@ export default function School(props: FormInputProps) {
 
     const facultyValue = props.form.watch(applicationInfoConstants.faculty.name)
     const departmentValue = props.form.watch(applicationInfoConstants.department.name)
+    const facultiesTyped = faculties as { [key: string]: { [key: string]: string[] } }
 
     const school = useMemo(() => {
         if (facultyValue && departmentValue) {
-            const schoolsObject = (faculties as any)[facultyValue];
+            const schoolsObject = facultiesTyped[facultyValue];
             return Object.keys(schoolsObject).find((school: string) => {
                 return schoolsObject[school].includes(departmentValue)
             })
         }
         return null
-    }, [facultyValue, departmentValue])
+    }, [facultyValue, departmentValue, facultiesTyped])
 
     return <>
-        <Input placeholder={"Select Faculty & Department"} value={school ? school : "Select Faculty & Department"} id={props.constants.name}/>
+        <Input placeholder={props.constants.placeholder} value={school ? school : props.constants.placeholder} id={props.constants.name}/>
     </>
 }

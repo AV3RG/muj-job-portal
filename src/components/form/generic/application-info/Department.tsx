@@ -14,22 +14,23 @@ export default function Department(props: FormInputProps) {
     }
 
     const facultyValue = props.form.watch(applicationInfoConstants.faculty.name)
+    const facultiesTyped = faculties as { [key: string]: { [key: string]: string[] } }
 
     const departments = useMemo(() => {
         if (facultyValue) {
-            const schoolsObject = (faculties as any)[facultyValue];
+            const schoolsObject = facultiesTyped[facultyValue];
             return Object.keys(schoolsObject).map((school) => {
                 return schoolsObject[school]
             }).flat()
         }
         return []
-    }, [facultyValue])
+    }, [facultiesTyped, facultyValue])
 
     return <>
         <Select onValueChange={props.field.onChange} defaultValue={props.field.value}>
             <FormControl>
                 <SelectTrigger>
-                    <SelectValue placeholder={"Select a department"}/>
+                    <SelectValue placeholder={props.constants.placeholder}/>
                 </SelectTrigger>
             </FormControl>
             <SelectContent>
