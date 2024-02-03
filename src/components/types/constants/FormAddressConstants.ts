@@ -1,10 +1,7 @@
-import FormComboBoxConstants from "./FormComboBoxConstants";
-import FormFieldConstants from "./FormFieldConstants";
+import FormLocationConstants from "@/components/types/constants/FormLocationConstants";
+import FormFieldConstants from "@/components/types/constants/FormFieldConstants";
 
-type FormAddressConstants = {
-    country: FormComboBoxConstants,
-    state: FormComboBoxConstants,
-    city: FormComboBoxConstants,
+type FormAddressConstants = FormLocationConstants & {
     address: FormFieldConstants,
 }
 

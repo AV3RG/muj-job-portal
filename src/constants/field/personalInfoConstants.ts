@@ -1,5 +1,5 @@
-import FormAddressConstants from "@/components/types/constants/FormAddressConstants";
 import FormFieldConstants from "@/components/types/constants/FormFieldConstants";
+import FormAddressConstants from "@/components/types/constants/FormAddressConstants";
 
 const fieldNamePrefix = 'personalInfo';
 

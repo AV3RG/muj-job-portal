@@ -1,11 +1,10 @@
-import FormAddressProps from "@/components/types/props/FormAddressProps";
+import FormLocationProps from "@/components/types/props/FormLocationProps";
 import React from "react";
 import GenericComboBox from "../GenericComboBox";
-import GenericTextArea from "@/components/form/generic/GenericTextArea";
 import FormSection from "../../FormSection";
 import formFormAssertion from "@/util/assert/formFormAssertion";
 
-export default function AddressCombo(props: FormAddressProps) {
+export default function AddressCombo(props: FormLocationProps) {
 
     const form = formFormAssertion(props.form)
 
@@ -37,7 +36,6 @@ export default function AddressCombo(props: FormAddressProps) {
             <GenericComboBox options={countries} constants={props.constants.country}/>
             <GenericComboBox options={states} constants={props.constants.state}/>
             <GenericComboBox options={cities} constants={props.constants.city}/>
-            <GenericTextArea constants={props.constants.address}/>
         </FormSection>
     </>
 }

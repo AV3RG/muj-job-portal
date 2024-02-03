@@ -17,6 +17,7 @@ import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
 import GenericSelect from "@/components/form/generic/GenericSelect";
 import religions from "@/constants/religions.json";
 import maritalStatuses from "@/constants/marital_status.json";
+import GenericTextArea from "@/components/form/generic/GenericTextArea";
 
 export default function PersonalInfo(props: FormAccordionProps) {
 
@@ -35,8 +36,14 @@ export default function PersonalInfo(props: FormAccordionProps) {
                     <GenericInput constants={personalInfoConstants.email}/>
                     <Separator orientation={"horizontal"}/>
                     <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true}/>
+                    <GenericTextArea constants={personalInfoConstants.permanentAddress.address} customRender={true}/>
                     <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
-                    {sameAddress || <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true}/>}
+                    {sameAddress ||
+                        <>
+                            <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true}/>
+                            <GenericTextArea constants={personalInfoConstants.currentAddress.address} customRender={true}/>
+                        </>
+                    }
                     <GenericSelect constants={personalInfoConstants.religion} options={religions}/>
                     <GenericSelect constants={personalInfoConstants.maritalStatus} options={maritalStatuses}/>
                     <GenericInput constants={personalInfoConstants.aadhaarCard}/>
