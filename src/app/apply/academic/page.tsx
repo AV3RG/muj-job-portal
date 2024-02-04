@@ -9,6 +9,8 @@ import { Form } from "@/components/ui/form"
 import ApplicationInfo from "@/components/form/academic/ApplicationInfo";
 import PersonalInfo from "@/components/form/academic/PersonalInfo";
 import Qualifications from "@/components/form/academic/Qualifications";
+import AcademicQualifications from "@/components/form/academic/AcademicQualifications";
+
 
 export default function Academic() {
 
@@ -29,6 +31,7 @@ export default function Academic() {
                         <div className={"text-center text-xl md:text-3xl "}>Job Application Form</div>
                         <ApplicationInfo form={form} index={1}/>
                         <PersonalInfo form={form} index={2}/>
+                        <AcademicQualifications form={form} index={3}/>
                         <Qualifications form={form} index={4}/>
                     </div>
                 </form>
