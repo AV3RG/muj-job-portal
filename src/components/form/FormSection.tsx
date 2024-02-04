@@ -10,6 +10,11 @@ export default function FormSection(props: FormSectionProps) {
             if (child === null || child === undefined) {
                 return <></>
             }
+            if (child.type && child.type === React.Fragment) {
+                return <FormSection form={props.form}>
+                    {child.props.children}
+                </FormSection>
+            }
             if (child.props.constants === undefined) {
                 //Probably a div or something
                 return child
