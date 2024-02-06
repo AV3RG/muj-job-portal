@@ -3,8 +3,9 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/co
 import FormSection from "@/components/form/FormSection";
 import GenericInput from "@/components/form/generic/GenericInput";
 import GenericSelect from "@/components/form/generic/GenericSelect";
-import qualificationsConstants from "@/constants/field/qualificationsConstants";
+import qualificationsConstants, {fieldNamePrefix} from "@/constants/field/qualificationsConstants";
 import pastYears from "@/util/pastYears";
+
 
 export default function Qualifications(props: FormAccordionProps) {
 
@@ -14,7 +15,7 @@ export default function Qualifications(props: FormAccordionProps) {
         <AccordionItem value="item-1">
             <AccordionTrigger>{props.index}. Qualifications</AccordionTrigger>
             <AccordionContent>
-                <FormSection form={props.form}>
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
                     <GenericSelect constants={qualificationsConstants.gateYear} options={yearsOptions} />
                     <GenericInput constants={qualificationsConstants.gateScore} passDownProps={{type: "number"}} />
                     <GenericSelect constants={qualificationsConstants.ugcNetYear} options={yearsOptions} />

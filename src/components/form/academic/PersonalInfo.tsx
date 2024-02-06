@@ -7,7 +7,7 @@ import {
 import FormSection from "@/components/form/FormSection";
 import FormAccordionProps from "@/components/types/props/FormAccordionProps";
 import DateOfBirth from "../generic/personal-info/DateOfBirth";
-import personalInfoConstants from "@/constants/field/personalInfoConstants";
+import personalInfoConstants, {fieldNamePrefix} from "@/constants/field/personalInfoConstants";
 import GenericInput from "@/components/form/generic/GenericInput";
 import GenericButtonGroup from "@/components/form/generic/GenericButtonGroup";
 import genders from "@/constants/genders.json";
@@ -27,7 +27,7 @@ export default function PersonalInfo(props: FormAccordionProps) {
         <AccordionItem value="item-1">
             <AccordionTrigger>{props.index}. Personal Information</AccordionTrigger>
             <AccordionContent>
-                <FormSection form={props.form}>
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
                     <GenericInput constants={personalInfoConstants.firstName}/>
                     <GenericInput constants={personalInfoConstants.middleName}/>
                     <GenericInput constants={personalInfoConstants.lastName}/>
@@ -35,12 +35,12 @@ export default function PersonalInfo(props: FormAccordionProps) {
                     <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
                     <GenericInput constants={personalInfoConstants.email}/>
                     <Separator orientation={"horizontal"}/>
-                    <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true}/>
+                    <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={fieldNamePrefix}/>
                     <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
                     <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
                     {sameAddress ||
                         <>
-                            <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true}/>
+                            <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={fieldNamePrefix}/>
                             <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
                         </>
                     }

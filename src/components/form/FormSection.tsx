@@ -11,7 +11,7 @@ export default function FormSection(props: FormSectionProps) {
                 return <></>
             }
             if (child.type && child.type === React.Fragment) {
-                return <FormSection form={props.form}>
+                return <FormSection form={props.form} fieldNamePrefix={props.fieldNamePrefix}>
                     {child.props.children}
                 </FormSection>
             }
@@ -23,7 +23,7 @@ export default function FormSection(props: FormSectionProps) {
                 //Still need to attach custom props
                 return React.cloneElement(child, {form: props.form})
             }
-            const fieldName = formFieldNameAssertion(child.props.constants.name)
+            const fieldName = `${props.fieldNamePrefix}.${formFieldNameAssertion(child.props.constants.name)}`
             return <>
                 <FormField
                     name={fieldName}

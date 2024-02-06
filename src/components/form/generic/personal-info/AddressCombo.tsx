@@ -32,7 +32,7 @@ export default function AddressCombo(props: FormLocationProps) {
     }, [selectedState, selectedCountry])
 
     return <>
-        <FormSection form={form}>
+        <FormSection form={form} fieldNamePrefix={props.formFieldNamePrefix}>
             <GenericComboBox options={countries} constants={props.constants.country}/>
             <GenericComboBox options={states} constants={props.constants.state}/>
             <GenericComboBox options={cities} constants={props.constants.city}/>

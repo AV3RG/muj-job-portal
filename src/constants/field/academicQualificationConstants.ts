@@ -16,7 +16,7 @@ const class10Constants: {
 } = {
     location: {
         country: {
-            name: `${class10FieldNamePrefix}.location.country`,
+            name: 'location.country',
             label: 'Country',
             tooltip: 'Enter the country of your school in which you passed 10th class',
             placeholder: 'Country',
@@ -24,7 +24,7 @@ const class10Constants: {
             commandEmptyText: 'No Countries Found'
         },
         state: {
-            name: `${class10FieldNamePrefix}.location.state`,
+            name: 'location.state',
             label: 'State',
             tooltip: 'Enter the state of your school in which you passed 10th class',
             placeholder: 'State',
@@ -32,7 +32,7 @@ const class10Constants: {
             commandEmptyText: 'No States Found'
         },
         city: {
-            name: `${class10FieldNamePrefix}.location.city`,
+            name: 'location.city',
             label: 'City',
             tooltip: 'Enter the city of your school in which you passed 10th class',
             placeholder: 'City',
@@ -41,37 +41,37 @@ const class10Constants: {
         },
     },
     educationMode: {
-        name: `${class10FieldNamePrefix}.educationMode`,
+        name: 'educationMode',
         label: 'Education Mode',
         tooltip: 'Choose the mode of education in which you passed 10th class',
         placeholder: 'Choose...',
     },
     school: {
-        name: `${class10FieldNamePrefix}.school`,
+        name: 'school',
         label: 'School',
         tooltip: 'Enter the name of your school in which you passed 10th class',
         placeholder: 'School Name',
     },
     board: {
-        name: `${class10FieldNamePrefix}.board`,
+        name: 'board',
         label: 'Board',
         tooltip: 'Enter the respective board of your school in which you passed 10th class',
         placeholder: 'Board Name',
     },
     passingYear: {
-        name: `${class10FieldNamePrefix}.passingYear`,
+        name: 'passingYear',
         label: 'Passing Year',
         tooltip: 'Choose 10th class passing year',
         placeholder: 'Choose...',
     },
     division: {
-        name: `${class10FieldNamePrefix}.division`,
+        name: 'division',
         label: 'Division',
         tooltip: 'Enter the division of your 10th class result. Leave empty if not applicable.',
         placeholder: 'Choose...',
     },
     aggregate: {
-        name: `${class10FieldNamePrefix}.Aggregate`,
+        name: 'Aggregate',
         label: 'Aggregate Percentage',
         tooltip: 'Enter your Aggregate Percentage in 10th class. Leave empty if not applicable.',
         placeholder: 'Aggregate Percentage',
@@ -90,7 +90,7 @@ const class12Constants: {
 } = {
     location: {
         country: {
-            name: `${class12FieldNamePrefix}.location.country`,
+            name: 'location.country',
             label: 'Country',
             tooltip: 'Enter the country of your school in which you passed 12th class',
             placeholder: 'Country',
@@ -98,7 +98,7 @@ const class12Constants: {
             commandEmptyText: 'No Countries Found'
         },
         state: {
-            name: `${class12FieldNamePrefix}.location.state`,
+            name: 'location.state',
             label: 'State',
             tooltip: 'Enter the state of your school in which you passed 12th class',
             placeholder: 'State',
@@ -106,7 +106,7 @@ const class12Constants: {
             commandEmptyText: 'No States Found'
         },
         city: {
-            name: `${class12FieldNamePrefix}.location.city`,
+            name: 'location.city',
             label: 'City',
             tooltip: 'Enter the city of your school in which you passed 12th class',
             placeholder: 'City',
@@ -115,47 +115,53 @@ const class12Constants: {
         },
     },
     educationMode: {
-        name: `${class12FieldNamePrefix}.educationMode`,
+        name: 'educationMode',
         label: 'Education Mode',
         tooltip: 'Choose the mode of education in which you passed 12th class',
         placeholder: 'Choose...',
     },
     school: {
-        name: `${class12FieldNamePrefix}.school`,
+        name: 'school',
         label: 'School',
         tooltip: 'Enter the name of your school in which you passed 12th class',
         placeholder: 'School Name',
     },
     board: {
-        name: `${class12FieldNamePrefix}.board`,
+        name: 'board',
         label: 'Board',
         tooltip: 'Enter the respective board of your school in which you passed 12th class',
         placeholder: 'Board Name',
     },
     stream: {
-        name: `${class12FieldNamePrefix}.stream`,
+        name: 'stream',
         label: 'Stream',
         tooltip: 'Enter the stream of your 12th class. Leave empty if not applicable.',
         placeholder: 'Choose...',
     },
     passingYear: {
-        name: `${class12FieldNamePrefix}.passingYear`,
+        name: 'passingYear',
         label: 'Passing Year',
         tooltip: 'Choose 12th class passing year',
         placeholder: 'Choose...',
     },
     division: {
-        name: `${class12FieldNamePrefix}.division`,
+        name: 'division',
         label: 'Division',
         tooltip: 'Enter the division of your 12th class result. Leave empty if not applicable.',
         placeholder: 'Choose...',
     },
     aggregate: {
-        name: `${class12FieldNamePrefix}.Aggregate`,
+        name: 'Aggregate',
         label: 'Aggregate Percentage',
         tooltip: 'Enter your Aggregate Percentage in 12th class. Leave empty if not applicable.',
         placeholder: 'Aggregate Percentage',
     },
+}
+
+const graduationConstants: {
+
+} = {
+
 }
 
 const academicQualificationConstants = {

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import FormSection from "../FormSection";
 import GenericSelect from "../generic/GenericSelect";
-import academicQualificationConstants from "@/constants/field/academicQualificationConstants";
+import academicQualificationConstants, {class10FieldNamePrefix, class12FieldNamePrefix} from "@/constants/field/academicQualificationConstants";
 import GenericInput from "../generic/GenericInput";
 import educationModes from "@/constants/education_modes.json";
 import years from "@/constants/years.json";
@@ -28,7 +28,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
           </AccordionTrigger>
           <AccordionContent>
             {/*Class 10th details*/}
-            <FormSection form={props.form}>
+            <FormSection form={props.form} fieldNamePrefix={class10FieldNamePrefix}>
               <AddressCombo constants={class10.location} customRender={true}/>
               <GenericSelect options={educationModes} constants={class10.educationMode} form={props.form}/>
               <GenericInput constants={class10.school} />
@@ -38,7 +38,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
               <GenericInput constants={class10.aggregate} passDownProps={{type: "number"}}/>
             </FormSection>
             {/*Class 12th details*/}
-            <FormSection form={props.form}>
+            <FormSection form={props.form} fieldNamePrefix={class12FieldNamePrefix}>
               <AddressCombo constants={class12.location} customRender={true}/>
               <GenericSelect options={educationModes} constants={class12.educationMode} form={props.form}/>
               <GenericInput constants={class12.school} />

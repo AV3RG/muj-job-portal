@@ -7,7 +7,6 @@ type FormInputProps = FormSectionChildBaseProps & {
     field?: ControllerRenderProps<FieldValues, string>,
     form?: UseFormReturn<any, undefined, any>,
     constants: FormFieldConstants,
-    noLabel?: boolean,
     passDownProps?: InputProps,
 }
 
