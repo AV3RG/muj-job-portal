@@ -15,13 +15,14 @@ export default function FormSection(props: FormSectionProps) {
                     {child.props.children}
                 </FormSection>
             }
+            if (child.props.customRender) {
+                //Still need to attach custom props
+                console.log(child.type)
+                return React.cloneElement(child, {form: props.form})
+            }
             if (child.props.constants === undefined) {
                 //Probably a div or something
                 return child
-            }
-            if (child.props.customRender) {
-                //Still need to attach custom props
-                return React.cloneElement(child, {form: props.form})
             }
             const fieldName = `${props.fieldNamePrefix}.${formFieldNameAssertion(child.props.constants.name)}`
             return <>

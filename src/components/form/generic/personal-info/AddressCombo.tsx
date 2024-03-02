@@ -39,3 +39,7 @@ export default function AddressCombo(props: FormLocationProps) {
         </FormSection>
     </>
 }
+
+AddressCombo.defaultProps = {
+    customRender: true
+}

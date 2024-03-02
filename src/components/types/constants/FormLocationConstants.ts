@@ -4,6 +4,7 @@ type FormLocationConstants = {
     country: FormComboBoxConstants,
     state: FormComboBoxConstants,
     city: FormComboBoxConstants,
+    prefix: string,
 }
 
 export default FormLocationConstants
