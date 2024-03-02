@@ -35,12 +35,12 @@ export default function PersonalInfo(props: FormAccordionProps) {
                     <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
                     <GenericInput constants={personalInfoConstants.email}/>
                     <Separator orientation={"horizontal"}/>
-                    <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={fieldNamePrefix}/>
+                    <AddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix}/>
                     <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
                     <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
                     {sameAddress ||
                         <>
-                            <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={fieldNamePrefix}/>
+                            <AddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}/>
                             <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
                         </>
                     }
