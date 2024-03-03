@@ -21,7 +21,7 @@ import educationModes from "@/constants/education_modes.json";
 import years from "@/constants/years.json";
 import division from "@/constants/division.json";
 import streams from "@/constants/streams.json";
-import AddressCombo from "@/components/form/generic/personal-info/AddressCombo";
+import GenericAddressCombo from "@/components/form/generic/GenericAddressCombo";
 import GenericRepeatable from "@/components/form/generic/GenericRepeatable";
 import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
 
@@ -35,7 +35,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
   const Class10Component = () => {
     return <FormSection form={props.form} fieldNamePrefix={class10FieldNamePrefix}>
-      <AddressCombo constants={class10.location} customRender={true} formFieldNamePrefix={class10.location.prefix}/>
+      <GenericAddressCombo constants={class10.location} customRender={true} formFieldNamePrefix={class10.location.prefix}/>
       <GenericSelect options={educationModes} constants={class10.educationMode} form={props.form}/>
       <GenericInput constants={class10.school} />
       <GenericInput constants={class10.board} />
@@ -47,7 +47,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
   const Class12Component = () => {
     return <FormSection form={props.form} fieldNamePrefix={class12FieldNamePrefix}>
-      <AddressCombo constants={class12.location} customRender={true} formFieldNamePrefix={class12.location.prefix}/>
+      <GenericAddressCombo constants={class12.location} customRender={true} formFieldNamePrefix={class12.location.prefix}/>
       <GenericSelect options={educationModes} constants={class12.educationMode} form={props.form}/>
       <GenericInput constants={class12.school} />
       <GenericInput constants={class12.board} />
@@ -77,7 +77,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                              Remove Last
                            </button>
                          }}>
-        <AddressCombo constants={graduation.location} customRender={true} formFieldNamePrefix={graduation.location.prefix}/>
+        <GenericAddressCombo constants={graduation.location} customRender={true} formFieldNamePrefix={graduation.location.prefix}/>
         <GenericSelect constants={graduation.educationMode} options={educationModes}/>
         <GenericInput constants={graduation.university}/>
         <GenericInput constants={graduation.college}/>
@@ -109,7 +109,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                              Remove Last
                            </button>
                          }}>
-        <AddressCombo constants={postGraduation.location} customRender={true} formFieldNamePrefix={postGraduation.location.prefix}/>
+        <GenericAddressCombo constants={postGraduation.location} customRender={true} formFieldNamePrefix={postGraduation.location.prefix}/>
         <GenericSelect constants={postGraduation.educationMode} options={educationModes}/>
         <GenericInput constants={postGraduation.university}/>
         <GenericInput constants={postGraduation.college}/>
@@ -146,7 +146,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                                    </button>
                                }}>
                 <GenericSelect constants={phd.status} options={[]} />
-                <AddressCombo constants={phd.location} customRender={true} formFieldNamePrefix={phd.location.prefix}/>
+                <GenericAddressCombo constants={phd.location} customRender={true} formFieldNamePrefix={phd.location.prefix}/>
                 <GenericSelect constants={phd.educationMode} options={educationModes}/>
                 <GenericInput constants={phd.university}/>
                 <GenericInput constants={phd.college}/>
@@ -187,7 +187,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                                              Remove Last
                                          </button>
                                      }}>
-                    <AddressCombo constants={mPhil.location} formFieldNamePrefix={mPhil.location.prefix} />
+                    <GenericAddressCombo constants={mPhil.location} formFieldNamePrefix={mPhil.location.prefix} />
                     <GenericSelect constants={mPhil.educationMode} options={educationModes}/>
                     <GenericInput constants={mPhil.university}/>
                     <GenericInput constants={mPhil.college}/>

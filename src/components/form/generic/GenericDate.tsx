@@ -7,7 +7,7 @@ import {cn} from "@/lib/utils";
 import {CalendarIcon} from "lucide-react";
 import {format} from "date-fns";
 
-export default function DateOfBirth(props: FormInputProps) {
+export default function GenericDate(props: FormInputProps) {
     if (!props.field) {
         throw Error("field is undefined or null")
     }

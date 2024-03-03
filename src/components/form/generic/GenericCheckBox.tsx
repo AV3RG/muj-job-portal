@@ -10,3 +10,7 @@ export default function GenericCheckBox(props: FormCheckBoxProps) {
         <FormLabel>{props.constants.label}</FormLabel>
     </>;
 }
+
+GenericCheckBox.defaultProps = {
+    noLabel: true
+}
