@@ -1,5 +1,4 @@
 import {
-    Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
@@ -12,11 +11,12 @@ import designations from "@/constants/designations.json"
 import faculties from "@/constants/faculties.json"
 import {useMemo} from "react";
 import GenericInput from "@/components/form/generic/GenericInput";
+import fieldWatcher from "@/util/fieldWatcher";
 
 export default function ApplicationInfo(props: FormAccordionProps) {
 
-    const facultyValue = props.form.watch(applicationInfoConstants.faculty.name)
-    const departmentValue = props.form.watch(applicationInfoConstants.department.name)
+    const facultyValue = fieldWatcher(props.form, [fieldNamePrefix, applicationInfoConstants.faculty.name])
+    const departmentValue = fieldWatcher(props.form, [fieldNamePrefix, applicationInfoConstants.department.name])
     const facultiesTyped = faculties as { [key: string]: { [key: string]: string[] } }
 
     const departments = useMemo(() => {
@@ -39,19 +39,15 @@ export default function ApplicationInfo(props: FormAccordionProps) {
         return null
     }, [facultyValue, departmentValue, facultiesTyped])
 
-    return <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
+    return <AccordionItem value={props.index.toString()}>
             <AccordionTrigger>{props.index}. Application Type</AccordionTrigger>
-            <AccordionContent>
-                <div className={"flex gap-x-4 gap-y-2 flex-wrap"}>
-                    <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
-                        <GenericSelect options={designations} constants={applicationInfoConstants.designation} />
-                        <GenericSelect options={Object.keys(faculties)} constants={applicationInfoConstants.faculty} />
-                        <GenericSelect options={departments} constants={applicationInfoConstants.department} />
-                        <GenericInput constants={applicationInfoConstants.school} passDownProps={{value: school ? school : applicationInfoConstants.school.placeholder}}/>
-                    </FormSection>
-                </div>
+            <AccordionContent className={"flex gap-x-8 gap-y-4 flex-wrap"}>
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                    <GenericSelect options={designations} constants={applicationInfoConstants.designation} selectTriggerClassName={"w-[200px] flex-basis-1"} />
+                    <GenericSelect options={Object.keys(faculties)} constants={applicationInfoConstants.faculty} selectTriggerClassName={"w-96"}/>
+                    <GenericSelect options={departments} constants={applicationInfoConstants.department} selectTriggerClassName={"w-96"} />
+                    <GenericInput constants={applicationInfoConstants.school} className={"w-80"} passDownProps={{value: school ? school : applicationInfoConstants.school.placeholder}}/>
+                </FormSection>
             </AccordionContent>
         </AccordionItem>
-    </Accordion>
 }

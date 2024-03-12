@@ -1,5 +1,4 @@
 import {
-    Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
@@ -18,38 +17,39 @@ import GenericSelect from "@/components/form/generic/GenericSelect";
 import religions from "@/constants/religions.json";
 import maritalStatuses from "@/constants/marital_status.json";
 import GenericTextArea from "@/components/form/generic/GenericTextArea";
+import fieldWatcher from "@/util/fieldWatcher";
 
 export default function PersonalInfo(props: FormAccordionProps) {
 
-    const sameAddress = props.form.watch(personalInfoConstants.sameAddress.name)
+    const sameAddress = fieldWatcher(props.form, [fieldNamePrefix, personalInfoConstants.sameAddress.name])
 
-    return <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-            <AccordionTrigger>{props.index}. Personal Information</AccordionTrigger>
-            <AccordionContent>
-                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
-                    <GenericInput constants={personalInfoConstants.firstName}/>
-                    <GenericInput constants={personalInfoConstants.middleName}/>
-                    <GenericInput constants={personalInfoConstants.lastName}/>
-                    <GenericDate constants={personalInfoConstants.dob}/>
-                    <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
-                    <GenericInput constants={personalInfoConstants.email}/>
-                    <Separator orientation={"horizontal"}/>
-                    <GenericAddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix}/>
-                    <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
-                    <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
-                    {sameAddress ||
-                        <>
-                            <GenericAddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}/>
-                            <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
-                        </>
-                    }
-                    <GenericSelect constants={personalInfoConstants.religion} options={religions}/>
-                    <GenericSelect constants={personalInfoConstants.maritalStatus} options={maritalStatuses}/>
-                    <GenericInput constants={personalInfoConstants.aadhaarCard}/>
-                    <GenericInput constants={personalInfoConstants.panCard}/>
-                </FormSection>
-            </AccordionContent>
-        </AccordionItem>
-    </Accordion>
+    return <AccordionItem value={props.index.toString()}>
+        <AccordionTrigger>{props.index}. Personal Information</AccordionTrigger>
+        <AccordionContent className={"flex gap-x-8 gap-y-4 flex-wrap"}>
+            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                <GenericInput constants={personalInfoConstants.firstName}/>
+                <GenericInput constants={personalInfoConstants.middleName}/>
+                <GenericInput constants={personalInfoConstants.lastName}/>
+                <GenericDate constants={personalInfoConstants.dob}/>
+                <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
+                <GenericInput constants={personalInfoConstants.email}/>
+
+                <Separator orientation={"horizontal"}/>
+
+                <GenericAddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix}/>
+                <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
+                <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
+                {sameAddress ||
+                    <>
+                        <GenericAddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}/>
+                        <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
+                    </>
+                }
+                <GenericSelect constants={personalInfoConstants.religion} options={religions}/>
+                <GenericSelect constants={personalInfoConstants.maritalStatus} options={maritalStatuses}/>
+                <GenericInput constants={personalInfoConstants.aadhaarCard}/>
+                <GenericInput constants={personalInfoConstants.panCard}/>
+            </FormSection>
+        </AccordionContent>
+    </AccordionItem>
 }

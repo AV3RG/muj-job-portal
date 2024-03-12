@@ -11,13 +11,13 @@ export default function GenericSelect(props: FormSelectProps) {
     return <>
         <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-                <SelectTrigger>
-                    <SelectValue placeholder={props.constants.placeholder}/>
+                <SelectTrigger className={props.selectTriggerClassName}>
+                    <SelectValue placeholder={props.constants.placeholder} className={props.selectValueClassName}/>
                 </SelectTrigger>
             </FormControl>
-            <SelectContent>
+            <SelectContent className={props.selectContentClassName}>
                 {props.options.map((option, index) => {
-                    return <SelectItem value={option} key={index}>{option}</SelectItem>
+                    return <SelectItem value={option} key={index} className={props.selectItemClassName}>{option}</SelectItem>
                 })}
             </SelectContent>
         </Select>

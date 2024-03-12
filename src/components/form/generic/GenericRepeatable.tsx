@@ -28,7 +28,7 @@ export default function GenericRepeatable(props: FormRepeatableProps) {
                 })
             })}
         </div>
-        <div className={props.buttonsClassName}>
+        <div className={props.buttonsHolderClassName}>
             {props.addButtonRenderer(size.current, setSize)}
             {props.removeButtonRenderer(size.current, setSize)}
         </div>

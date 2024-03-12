@@ -1,7 +1,6 @@
 import React from "react";
 import FormAccordionProps from "@/components/types/props/FormAccordionProps";
 import {
-  Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
@@ -24,6 +23,7 @@ import streams from "@/constants/streams.json";
 import GenericAddressCombo from "@/components/form/generic/GenericAddressCombo";
 import GenericRepeatable from "@/components/form/generic/GenericRepeatable";
 import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
+import fieldWatcher from "@/util/fieldWatcher";
 
 export default function AcademicQualifications(props: FormAccordionProps) {
   const class10 = academicQualificationConstants.class10;
@@ -123,8 +123,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   }
 
   const PhDComponent = () => {
-
-    const phdYes = props.form.watch(`${phdFieldNamePrefix}.${phd.yesCheckbox.name}`);
+    const phdYes = fieldWatcher(props.form, [phdFieldNamePrefix, phd.yesCheckbox.name]);
 
     const PhDYesComponent = () => {
         return <FormSection form={props.form} fieldNamePrefix={phdFieldNamePrefix}>
@@ -166,7 +165,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
   const MPhilComponent = () => {
 
-      const mPhilYes = props.form.watch(`${mPhilFieldNamePrefix}.${mPhil.yesCheckbox.name}`);
+      const mPhilYes = fieldWatcher(props.form, [mPhilFieldNamePrefix, mPhil.yesCheckbox.name]);
 
       const MPhilYesComponent = () => {
             return <FormSection form={props.form} fieldNamePrefix={mPhilFieldNamePrefix}>
@@ -207,22 +206,18 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   }
 
   return (
-    <>
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger>
-            {props.index}. Academic / Professional Qualifications
-          </AccordionTrigger>
-          <AccordionContent>
-            <Class10Component />
-            <Class12Component />
-            <GraduationComponent />
-            <PostGraduationComponent />
-            <PhDComponent />
-            <MPhilComponent />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </>
+    <AccordionItem value={props.index.toString()}>
+      <AccordionTrigger>
+        {props.index}. Academic / Professional Qualifications
+      </AccordionTrigger>
+      <AccordionContent>
+        <Class10Component />
+        <Class12Component />
+        <GraduationComponent />
+        <PostGraduationComponent />
+        <PhDComponent />
+        <MPhilComponent />
+      </AccordionContent>
+    </AccordionItem>
   );
 }

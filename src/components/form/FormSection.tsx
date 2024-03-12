@@ -30,8 +30,8 @@ export default function FormSection(props: FormSectionProps) {
                     name={fieldName}
                     control={props.form.control}
                     render={({ field }) : React.ReactElement => {
-                        return <div>
-                            {!child.props.noLabel && <FormLabel>{child.props.constants.label}</FormLabel>}
+                        return <div className={"flex flex-col gap-y-2"}>
+                            {!child.props.noLabel && <FormLabel className={child.props.labelClassName}>{child.props.constants.label}</FormLabel>}
                             {React.cloneElement(child, {field: field, form: props.form})}
                             <FormMessage/>
                         </div>

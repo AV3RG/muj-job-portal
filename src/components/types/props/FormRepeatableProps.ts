@@ -1,11 +1,12 @@
 import FormSectionChildBaseProps from "@/components/types/props/FormSectionChildBaseProps";
 import React from "react";
 import {UseFormReturn} from "react-hook-form";
+import TailwindClass from "@/components/types/TailwindClass";
 
 type FormRepeatableProps = FormSectionChildBaseProps & {
     children: React.ReactElement[],
-    className?: React.ComponentProps<"div">["className"],
-    buttonsClassName?: React.ComponentProps<"div">["className"],
+    className?: TailwindClass,
+    buttonsHolderClassName?: TailwindClass,
     form?: UseFormReturn<any, undefined, any>,
     fieldNamePrefix: string,
     addButtonRenderer: (size: number, setSize: (value: (((prevState: number) => number) | number)) => void) => React.ReactElement,

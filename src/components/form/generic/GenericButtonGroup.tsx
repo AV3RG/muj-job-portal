@@ -7,10 +7,10 @@ export default function GenericButtonGroup(props: FormSelectProps) {
 
     const field = formFieldAssertion(props.field)
 
-    return <ToggleGroup type="single" defaultValue={field.value}>
+    return <ToggleGroup type="single" defaultValue={field.value} variant={"outline"}>
         {props.options.map((option, index) => {
             return <>
-                {index != 0 ? <Separator orientation={"vertical"}/>: <></>}
+
                 <ToggleGroupItem value={option} key={index}>{option}</ToggleGroupItem>
             </>
         })}

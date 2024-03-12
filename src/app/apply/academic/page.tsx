@@ -10,6 +10,13 @@ import ApplicationInfo from "@/components/form/academic/ApplicationInfo";
 import PersonalInfo from "@/components/form/academic/PersonalInfo";
 import Qualifications from "@/components/form/academic/Qualifications";
 import AcademicQualifications from "@/components/form/academic/AcademicQualifications";
+import Experience from "@/components/form/academic/Experience";
+import Fellowships from "@/components/form/academic/Fellowships";
+import Books from "@/components/form/academic/Books";
+import Rewards from "@/components/form/academic/Rewards";
+import OtherInfo from "@/components/form/academic/OtherInfo";
+import Research from "@/components/form/academic/Research";
+import { Accordion } from "@/components/ui/accordion";
 
 
 export default function Academic() {
@@ -27,12 +34,24 @@ export default function Academic() {
         <div className={"mt-12 px-12 md:px-24"}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className={"flex flex-col gap-y-2"}>
-                        <div className={"text-center text-xl md:text-3xl "}>Job Application Form</div>
-                        <ApplicationInfo form={form} index={1}/>
-                        <PersonalInfo form={form} index={2}/>
-                        <AcademicQualifications form={form} index={3}/>
-                        <Qualifications form={form} index={4}/>
+                    <div className={"flex flex-col gap-y-5"}>
+                        <div className={"text-center text-xl md:text-5xl font-sans"}>Job Application Form</div>
+                        <Accordion type="single" collapsible className={"flex flex-col gap-y-2"}>
+                            {[
+                                ApplicationInfo,
+                                PersonalInfo,
+                                AcademicQualifications,
+                                Qualifications,
+                                Experience,
+                                Fellowships,
+                                Research,
+                                Books,
+                                Rewards,
+                                OtherInfo,
+                            ].map((FormSection, index) => {
+                                return <FormSection form={form} index={index + 1} key={index}/>
+                            })}
+                        </Accordion>
                     </div>
                 </form>
             </Form>
