@@ -1,6 +1,5 @@
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import FormSelectProps from "@/components/types/props/FormSelectProps";
-import {Separator} from "@/components/ui/separator";
 import formFieldAssertion from "@/util/assert/formFieldAssertion";
 
 export default function GenericButtonGroup(props: FormSelectProps) {
@@ -10,7 +9,6 @@ export default function GenericButtonGroup(props: FormSelectProps) {
     return <ToggleGroup type="single" defaultValue={field.value} variant={"outline"}>
         {props.options.map((option, index) => {
             return <>
-
                 <ToggleGroupItem value={option} key={index}>{option}</ToggleGroupItem>
             </>
         })}

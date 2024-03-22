@@ -24,6 +24,11 @@ import GenericAddressCombo from "@/components/form/generic/GenericAddressCombo";
 import GenericRepeatable from "@/components/form/generic/GenericRepeatable";
 import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
 import fieldWatcher from "@/util/fieldWatcher";
+import {Separator} from "@/components/ui/separator";
+import GenericRepeatableButton, {
+    GenericAddButton,
+    GenericRemoveButton
+} from "@/components/form/generic/GenericRepeatableButton";
 
 export default function AcademicQualifications(props: FormAccordionProps) {
   const class10 = academicQualificationConstants.class10;
@@ -34,7 +39,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   const mPhil = academicQualificationConstants.mPhil;
 
   const Class10Component = () => {
-    return <FormSection form={props.form} fieldNamePrefix={class10FieldNamePrefix}>
+    return <FormSection form={props.form} fieldNamePrefix={class10FieldNamePrefix} className={"grid grid-cols-6 w-full"}>
       <GenericAddressCombo constants={class10.location} customRender={true} formFieldNamePrefix={class10.location.prefix}/>
       <GenericSelect options={educationModes} constants={class10.educationMode} form={props.form}/>
       <GenericInput constants={class10.school} />
@@ -46,7 +51,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   }
 
   const Class12Component = () => {
-    return <FormSection form={props.form} fieldNamePrefix={class12FieldNamePrefix}>
+    return <FormSection form={props.form} fieldNamePrefix={class12FieldNamePrefix} className={"grid grid-cols-6 w-full"}>
       <GenericAddressCombo constants={class12.location} customRender={true} formFieldNamePrefix={class12.location.prefix}/>
       <GenericSelect options={educationModes} constants={class12.educationMode} form={props.form}/>
       <GenericInput constants={class12.school} />
@@ -59,24 +64,11 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   }
 
   const GraduationComponent = () => {
-    return <FormSection form={props.form} fieldNamePrefix={graduationFieldNamePrefix}>
-      <GenericRepeatable fieldNamePrefix={graduationFieldNamePrefix} customRender={true}
-                         addButtonRenderer={(_, setSize) => {
-                           return <button onClick={(e) => {
-                             e.preventDefault()
-                             setSize((current) => { return current + 1 })
-                           }}>
-                             Add new
-                           </button>
-                         }}
-                         removeButtonRenderer={(_, setSize) => {
-                           return <button onClick={(e) => {
-                             e.preventDefault()
-                             setSize((current) => { return current - 1 })
-                           }}>
-                             Remove Last
-                           </button>
-                         }}>
+    return <FormSection form={props.form} fieldNamePrefix={graduationFieldNamePrefix} className={"block gap-0 w-full"}>
+      <GenericRepeatable fieldNamePrefix={graduationFieldNamePrefix}
+                         customRender={true}
+                         formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
+      >
         <GenericAddressCombo constants={graduation.location} customRender={true} formFieldNamePrefix={graduation.location.prefix}/>
         <GenericSelect constants={graduation.educationMode} options={educationModes}/>
         <GenericInput constants={graduation.university}/>
@@ -91,24 +83,11 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   }
 
   const PostGraduationComponent = () => {
-    return <FormSection form={props.form} fieldNamePrefix={postGraduationFieldNamePrefix}>
-      <GenericRepeatable fieldNamePrefix={postGraduationFieldNamePrefix} customRender={true}
-                         addButtonRenderer={(_, setSize) => {
-                           return <button onClick={(e) => {
-                             e.preventDefault()
-                             setSize((current) => { return current + 1 })
-                           }}>
-                             Add new
-                           </button>
-                         }}
-                         removeButtonRenderer={(_, setSize) => {
-                           return <button onClick={(e) => {
-                             e.preventDefault()
-                             setSize((current) => { return current - 1 })
-                           }}>
-                             Remove Last
-                           </button>
-                         }}>
+    return <FormSection form={props.form} fieldNamePrefix={postGraduationFieldNamePrefix} className={"block gap-0 w-full"}>
+      <GenericRepeatable fieldNamePrefix={postGraduationFieldNamePrefix}
+                         customRender={true}
+                         formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
+      >
         <GenericAddressCombo constants={postGraduation.location} customRender={true} formFieldNamePrefix={postGraduation.location.prefix}/>
         <GenericSelect constants={postGraduation.educationMode} options={educationModes}/>
         <GenericInput constants={postGraduation.university}/>
@@ -126,24 +105,10 @@ export default function AcademicQualifications(props: FormAccordionProps) {
     const phdYes = fieldWatcher(props.form, [phdFieldNamePrefix, phd.yesCheckbox.name]);
 
     const PhDYesComponent = () => {
-        return <FormSection form={props.form} fieldNamePrefix={phdFieldNamePrefix}>
+        return <FormSection form={props.form} fieldNamePrefix={phdFieldNamePrefix} className={"block gap-0 w-full"}>
             <GenericRepeatable fieldNamePrefix={phdFieldNamePrefix} customRender={true}
-                               addButtonRenderer={(_, setSize) => {
-                                   return <button onClick={(e) => {
-                                       e.preventDefault()
-                                       setSize((current) => { return current + 1 })
-                                   }}>
-                                       Add new
-                                   </button>
-                               }}
-                               removeButtonRenderer={(_, setSize) => {
-                                   return <button onClick={(e) => {
-                                       e.preventDefault()
-                                       setSize((current) => { return current - 1 })
-                                   }}>
-                                       Remove Last
-                                   </button>
-                               }}>
+                               formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
+            >
                 <GenericSelect constants={phd.status} options={[]} />
                 <GenericAddressCombo constants={phd.location} customRender={true} formFieldNamePrefix={phd.location.prefix}/>
                 <GenericSelect constants={phd.educationMode} options={educationModes}/>
@@ -158,7 +123,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
     }
 
     return <FormSection form={props.form} fieldNamePrefix={phdFieldNamePrefix}>
-      <GenericCheckBox constants={phd.yesCheckbox} noLabel/>
+      <GenericCheckBox constants={phd.yesCheckbox}/>
       {phdYes && <PhDYesComponent />}
     </FormSection>
   }
@@ -168,24 +133,10 @@ export default function AcademicQualifications(props: FormAccordionProps) {
       const mPhilYes = fieldWatcher(props.form, [mPhilFieldNamePrefix, mPhil.yesCheckbox.name]);
 
       const MPhilYesComponent = () => {
-            return <FormSection form={props.form} fieldNamePrefix={mPhilFieldNamePrefix}>
+            return <FormSection form={props.form} fieldNamePrefix={mPhilFieldNamePrefix} className={"block gap-0 w-full"}>
                 <GenericRepeatable fieldNamePrefix={mPhilFieldNamePrefix} customRender={true}
-                                     addButtonRenderer={(_, setSize) => {
-                                         return <button onClick={(e) => {
-                                             e.preventDefault()
-                                             setSize((current) => { return current + 1 })
-                                         }}>
-                                             Add new
-                                         </button>
-                                     }}
-                                     removeButtonRenderer={(_, setSize) => {
-                                         return <button onClick={(e) => {
-                                             e.preventDefault()
-                                             setSize((current) => { return current - 1 })
-                                         }}>
-                                             Remove Last
-                                         </button>
-                                     }}>
+                                   formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
+                >
                     <GenericAddressCombo constants={mPhil.location} formFieldNamePrefix={mPhil.location.prefix} />
                     <GenericSelect constants={mPhil.educationMode} options={educationModes}/>
                     <GenericInput constants={mPhil.university}/>
@@ -199,7 +150,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
       }
 
         return <FormSection form={props.form} fieldNamePrefix={mPhilFieldNamePrefix}>
-            <GenericCheckBox constants={mPhil.yesCheckbox} noLabel/>
+            <GenericCheckBox constants={mPhil.yesCheckbox}/>
             {mPhilYes && <MPhilYesComponent />}
         </FormSection>
 
@@ -210,14 +161,25 @@ export default function AcademicQualifications(props: FormAccordionProps) {
       <AccordionTrigger>
         {props.index}. Academic / Professional Qualifications
       </AccordionTrigger>
-      <AccordionContent>
-        <Class10Component />
-        <Class12Component />
-        <GraduationComponent />
-        <PostGraduationComponent />
-        <PhDComponent />
-        <MPhilComponent />
-      </AccordionContent>
+        <AccordionContent className={"flex gap-x-8 gap-y-4 flex-wrap"}>
+            <div className={"block w-full font-bold text-lg"}>Class 10</div>
+            <Class10Component/>
+            <Separator orientation={"horizontal"}/>
+            <div className={"block w-full font-bold text-lg"}>Class 12</div>
+            <Class12Component/>
+            <Separator orientation={"horizontal"}/>
+            <div className={"block w-full font-bold text-lg"}>Graduation</div>
+            <GraduationComponent/>
+            <Separator orientation={"horizontal"}/>
+            <div className={"block w-full font-bold text-lg"}>Post Graduation</div>
+            <PostGraduationComponent/>
+            <Separator orientation={"horizontal"}/>
+            <div className={"block w-full font-bold text-lg"}>Ph.D</div>
+            <PhDComponent/>
+            <Separator orientation={"horizontal"}/>
+            <div className={"block w-full font-bold text-lg"}>M. Phil</div>
+            <MPhilComponent/>
+        </AccordionContent>
     </AccordionItem>
   );
 }

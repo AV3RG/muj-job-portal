@@ -25,26 +25,35 @@ export default function PersonalInfo(props: FormAccordionProps) {
 
     return <AccordionItem value={props.index.toString()}>
         <AccordionTrigger>{props.index}. Personal Information</AccordionTrigger>
-        <AccordionContent className={"flex gap-x-8 gap-y-4 flex-wrap"}>
-            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+        <AccordionContent className={"flex flex-col gap-y-6"}>
+            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
                 <GenericInput constants={personalInfoConstants.firstName}/>
                 <GenericInput constants={personalInfoConstants.middleName}/>
                 <GenericInput constants={personalInfoConstants.lastName}/>
                 <GenericDate constants={personalInfoConstants.dob}/>
                 <GenericButtonGroup constants={personalInfoConstants.gender} options={genders} />
                 <GenericInput constants={personalInfoConstants.email}/>
-
-                <Separator orientation={"horizontal"}/>
-
-                <GenericAddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix}/>
+            </FormSection>
+            <Separator orientation={"horizontal"}/>
+            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
+                <GenericAddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix} containerClassName={"flex gap-x-8 gap-y-4 flex-wrap"}/>
                 <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
-                <GenericCheckBox constants={personalInfoConstants.sameAddress} noLabel/>
-                {sameAddress ||
-                    <>
-                        <GenericAddressCombo constants={personalInfoConstants.currentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}/>
+                <GenericCheckBox constants={personalInfoConstants.sameAddress}/>
+            </FormSection>
+            <Separator orientation={"horizontal"}/>
+            {sameAddress ||
+                <>
+                    <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
+                        <GenericAddressCombo constants={personalInfoConstants.currentAddress}
+                                             customRender={true}
+                                             formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}
+                                             containerClassName={"flex-none gap-0"}/>
                         <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
-                    </>
-                }
+                    </FormSection>
+                    <Separator orientation={"horizontal"}/>
+                </>
+            }
+            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
                 <GenericSelect constants={personalInfoConstants.religion} options={religions}/>
                 <GenericSelect constants={personalInfoConstants.maritalStatus} options={maritalStatuses}/>
                 <GenericInput constants={personalInfoConstants.aadhaarCard}/>

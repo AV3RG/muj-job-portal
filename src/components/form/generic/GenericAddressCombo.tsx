@@ -31,13 +31,11 @@ export default function GenericAddressCombo(props: FormLocationProps) {
         return [`Testing City ${selectedState}`]
     }, [selectedState, selectedCountry])
 
-    return <>
-        <FormSection form={form} fieldNamePrefix={props.formFieldNamePrefix}>
-            <GenericComboBox options={countries} constants={props.constants.country}/>
-            <GenericComboBox options={states} constants={props.constants.state}/>
-            <GenericComboBox options={cities} constants={props.constants.city}/>
-        </FormSection>
-    </>
+    return <FormSection form={form} fieldNamePrefix={props.formFieldNamePrefix} className={props.containerClassName} type={"fragment"}>
+        <GenericComboBox options={countries} constants={props.constants.country}/>
+        <GenericComboBox options={states} constants={props.constants.state}/>
+        <GenericComboBox options={cities} constants={props.constants.city}/>
+    </FormSection>
 }
 
 GenericAddressCombo.defaultProps = {

@@ -8,6 +8,7 @@ import GenericRepeatable from "../generic/GenericRepeatable";
 import GenericAddressCombo from "../generic/GenericAddressCombo";
 import React from "react";
 import GenericDate from "@/components/form/generic/GenericDate";
+import { Separator } from "@/components/ui/separator";
 
 export default function Experience(props: FormAccordionProps) {
 
@@ -17,64 +18,39 @@ export default function Experience(props: FormAccordionProps) {
     return <AccordionItem value={props.index.toString()}>
         <AccordionTrigger>{props.index}. Experience</AccordionTrigger>
         <AccordionContent>
-            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
-                <GenericRepeatable fieldNamePrefix={academicPrefix}
-                                   addButtonRenderer={(_, setSize) => {
-                                       return <button onClick={(e) => {
-                                           e.preventDefault()
-                                           setSize((current) => current + 1)
-                                       }}>
-                                           Add new
-                                       </button>
-                                   }}
-                                   removeButtonRenderer={(_, setSize) => {
-                                       return <button onClick={(e) => {
-                                           e.preventDefault()
-                                           setSize((current) => current - 1)
-                                       }}>
-                                           Remove Last
-                                       </button>
-                                   }}
-                >
-                    <GenericSelect options={[]} constants={academic.natureOfJob}/>
-                    <GenericAddressCombo constants={academic.location} customRender={true} formFieldNamePrefix={academic.location.prefix}/>
-                    <GenericInput constants={academic.university}/>
-                    <GenericInput constants={academic.college}/>
-                    <GenericSelect constants={academic.position} options={[]}/>
-                    <GenericInput constants={academic.domain}/>
-                    <GenericDate constants={academic.from}/>
-                    <GenericDate constants={academic.to}/>
-                </GenericRepeatable>
-            </FormSection>
-            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
-                <GenericRepeatable fieldNamePrefix={nonAcademicPrefix}
-                                   addButtonRenderer={(_, setSize) => {
-                                       return <button onClick={(e) => {
-                                           e.preventDefault()
-                                           setSize((current) => current + 1)
-                                       }}>
-                                           Add new
-                                       </button>
-                                   }}
-                                   removeButtonRenderer={(_, setSize) => {
-                                       return <button onClick={(e) => {
-                                           e.preventDefault()
-                                           setSize((current) => current - 1)
-                                       }}>
-                                           Remove Last
-                                       </button>
-                                   }}
-                >
-                    <GenericSelect constants={nonAcademic.typeOfJob} options={[]} />
-                    <GenericSelect options={[]} constants={nonAcademic.natureOfJob}/>
-                    <GenericAddressCombo constants={nonAcademic.location} customRender={true} formFieldNamePrefix={nonAcademic.location.prefix}/>
-                    <GenericInput constants={nonAcademic.organization}/>
-                    <GenericInput constants={nonAcademic.designation} />
-                    <GenericInput constants={nonAcademic.department} />
-                    <GenericDate constants={nonAcademic.from}/>
-                    <GenericDate constants={nonAcademic.to}/>
-                </GenericRepeatable>
-            </FormSection>
+            <div className={"flex flex-col gap-y-6"}>
+                <div className={"text-lg font-bold"}>Academic Experience</div>
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                    <GenericRepeatable fieldNamePrefix={academicPrefix} formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}>
+                        <GenericSelect options={[]} constants={academic.natureOfJob}/>
+                        <GenericAddressCombo constants={academic.location}
+                                             customRender={true}
+                                             formFieldNamePrefix={academic.location.prefix}
+                        />
+                        <GenericInput constants={academic.university}/>
+                        <GenericInput constants={academic.college}/>
+                        <GenericSelect constants={academic.position} options={[]}/>
+                        <GenericInput constants={academic.domain}/>
+                        <GenericDate constants={academic.from}/>
+                        <GenericDate constants={academic.to}/>
+                    </GenericRepeatable>
+                </FormSection>
+                <Separator/>
+                <div className={"text-lg font-bold"}>Non Academic Experience</div>
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                    <GenericRepeatable fieldNamePrefix={academicPrefix} formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}>
+                        <GenericSelect constants={nonAcademic.typeOfJob} options={[]}/>
+                        <GenericSelect options={[]} constants={nonAcademic.natureOfJob}/>
+                        <GenericAddressCombo constants={nonAcademic.location} customRender={true}
+                                             formFieldNamePrefix={nonAcademic.location.prefix}/>
+                        <GenericInput constants={nonAcademic.organization}/>
+                        <GenericInput constants={nonAcademic.designation}/>
+                        <GenericInput constants={nonAcademic.department}/>
+                        <GenericDate constants={nonAcademic.from}/>
+                        <GenericDate constants={nonAcademic.to}/>
+                    </GenericRepeatable>
+                </FormSection>
+            </div>
         </AccordionContent>
     </AccordionItem>
 }

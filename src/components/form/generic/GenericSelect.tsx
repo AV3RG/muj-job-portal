@@ -3,6 +3,7 @@ import {FormControl} from "@/components/ui/form";
 import React from "react";
 import FormSelectProps from "@/components/types/props/FormSelectProps";
 import formFieldAssertion from "@/util/assert/formFieldAssertion";
+import {cn} from "@/lib/utils";
 
 export default function GenericSelect(props: FormSelectProps) {
 
@@ -11,7 +12,7 @@ export default function GenericSelect(props: FormSelectProps) {
     return <>
         <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-                <SelectTrigger className={props.selectTriggerClassName}>
+                <SelectTrigger className={cn("w-full", props.selectTriggerClassName)}>
                     <SelectValue placeholder={props.constants.placeholder} className={props.selectValueClassName}/>
                 </SelectTrigger>
             </FormControl>

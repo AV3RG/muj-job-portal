@@ -14,7 +14,7 @@ export default function Qualifications(props: FormAccordionProps) {
     return <AccordionItem value={props.index.toString()}>
         <AccordionTrigger>{props.index}. Qualifications</AccordionTrigger>
         <AccordionContent>
-            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
                 <GenericSelect constants={qualificationsConstants.gateYear} options={yearsOptions} />
                 <GenericInput constants={qualificationsConstants.gateScore} passDownProps={{type: "number"}} />
                 <GenericSelect constants={qualificationsConstants.ugcNetYear} options={yearsOptions} />

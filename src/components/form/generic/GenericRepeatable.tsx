@@ -1,40 +1,41 @@
 import FormRepeatableProps from "@/components/types/props/FormRepeatableProps";
 import FormSection from "@/components/form/FormSection";
 import formFormAssertion from "@/util/assert/formFormAssertion";
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
+import { Separator } from "@/components/ui/separator";
+import {cn} from "@/lib/utils";
+import {GenericAddButton, GenericRemoveButton} from "@/components/form/generic/GenericRepeatableButton";
 
 export default function GenericRepeatable(props: FormRepeatableProps) {
 
-    console.log(props)
-
     const form = formFormAssertion(props.form);
-    const size = useRef(1)
+    const [size, setSize] = useState(1);
 
-    const setSize = (value: (((prevState: number) => number) | number)) => {
-        if (typeof value === "function") {
-            size.current = value(size.current)
-        } else {
-            size.current = value
-        }
-    }
-
-    return <>
-        <div className={props.className}>
-            {Array.from({length: size.current}, (_, index) => {
-                return props.children.map((child) => {
-                    return <FormSection form={form} fieldNamePrefix={`${props.fieldNamePrefix}.${index}`} key={index}>
-                        {child}
-                    </FormSection>
-                })
+    return <div className={"flex flex-col gap-y-4 w-full"}>
+        <div>
+            {Array.from({length: size}, (_, index) => {
+                return <div className={"flex flex-col gap-y-4 w-full"}>
+                    <div className={cn("grid grid-cols-6 gap-x-8 gap-y-4", props.itemsClassName)}>
+                        {props.children.map((child) => {
+                            return <FormSection form={form} fieldNamePrefix={`${props.fieldNamePrefix}.${index}`} key={index} {...props.formSectionProps}>
+                                {child}
+                            </FormSection>
+                        })}
+                    </div>
+                    {props.separator ? ((index === length - 1) ? <></> : <Separator orientation={"horizontal"} className={""}/>) : <></> }
+                </div>
             })}
         </div>
-        <div className={props.buttonsHolderClassName}>
-            {props.addButtonRenderer(size.current, setSize)}
-            {props.removeButtonRenderer(size.current, setSize)}
+        <div className={cn("flex gap-x-4", props.buttonsHolderClassName)}>
+            {props.addButtonRenderer(size, setSize)}
+            {props.removeButtonRenderer(size, setSize)}
         </div>
-    </>
+    </div>
 }
 
 GenericRepeatable.defaultProps = {
-    customRender: true
+    customRender: true,
+    separator: true,
+    addButtonRenderer: (size: number, setSize: (value: (((prevState: number) => number) | number)) => void) => <GenericAddButton size={size} setSize={setSize}/>,
+    removeButtonRenderer: (size: number, setSize: (value: (((prevState: number) => number) | number)) => void) => <GenericRemoveButton size={size} setSize={setSize}/>,
 }
