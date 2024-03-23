@@ -6,6 +6,7 @@ import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
 import GenericInput from "@/components/form/generic/GenericInput";
 import GenericSelect from "@/components/form/generic/GenericSelect";
 import fieldWatcher from "@/util/fieldWatcher";
+import GenericRepeatable from "@/components/form/generic/GenericRepeatable";
 
 export default function Books(props: FormAccordionProps) {
     const checkboxState = fieldWatcher(props.form, [fieldNamePrefix, booksConstants.ifYes.name])
@@ -16,11 +17,11 @@ export default function Books(props: FormAccordionProps) {
             <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
                 <GenericCheckBox constants={booksConstants.ifYes}/>
                 {checkboxState &&
-                    <>
+                    <GenericRepeatable fieldNamePrefix={fieldNamePrefix}>
                         <GenericInput constants={booksConstants.details}/>
                         <GenericInput constants={booksConstants.isbn} passDownProps={{type: "number"}}/>
                         <GenericSelect constants={booksConstants.writtenAs} options={[]}/>
-                    </>
+                    </GenericRepeatable>
                 }
             </FormSection>
         </AccordionContent>

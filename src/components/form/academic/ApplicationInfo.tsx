@@ -42,8 +42,8 @@ export default function ApplicationInfo(props: FormAccordionProps) {
     return <AccordionItem value={props.index.toString()}>
             <AccordionTrigger>{props.index}. Application Type</AccordionTrigger>
             <AccordionContent className={"flex gap-x-8 gap-y-4 flex-wrap"}>
-                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
-                    <GenericSelect options={designations} constants={applicationInfoConstants.designation} selectTriggerClassName={"w-[200px] flex-basis-1"} />
+                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
+                    <GenericSelect options={designations} constants={applicationInfoConstants.designation} selectTriggerClassName={"w-full flex-basis-1"} />
                     <GenericSelect options={Object.keys(faculties)} constants={applicationInfoConstants.faculty}/>
                     <GenericSelect options={departments} constants={applicationInfoConstants.department} />
                     <GenericInput className={"w-80"} constants={applicationInfoConstants.school} passDownProps={{value: school ? school : applicationInfoConstants.school.placeholder}}/>
