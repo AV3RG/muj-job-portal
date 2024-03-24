@@ -25,10 +25,6 @@ import GenericRepeatable from "@/components/form/generic/GenericRepeatable";
 import GenericCheckBox from "@/components/form/generic/GenericCheckBox";
 import fieldWatcher from "@/util/fieldWatcher";
 import {Separator} from "@/components/ui/separator";
-import GenericRepeatableButton, {
-    GenericAddButton,
-    GenericRemoveButton
-} from "@/components/form/generic/GenericRepeatableButton";
 
 export default function AcademicQualifications(props: FormAccordionProps) {
   const class10 = academicQualificationConstants.class10;

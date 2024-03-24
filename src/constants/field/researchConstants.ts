@@ -17,6 +17,13 @@ type ProjectConstants = {
 }
 
 type ConferenceConstants = {
+    presentedAtConferences: ConferenceRegionConstants,
+    attendedConferences: ConferenceRegionConstants,
+    organizedConferences: ConferenceRegionConstants,
+    totalConferences: FormFieldConstants,
+}
+
+type ConferenceRegionConstants = {
     total: FormFieldConstants,
     national: FormFieldConstants,
     international: FormFieldConstants,
@@ -30,12 +37,14 @@ type GuidanceConstants = {
 }
 
 type PatentConstants = {
+    yesCheckbox: FormFieldConstants,
     details: FormFieldConstants,
     year: FormFieldConstants,
     status: FormFieldConstants,
 }
 
 type ConsultancyConstants = {
+    yesCheckbox: FormFieldConstants,
     completedNo: FormFieldConstants,
     completedAmount: FormFieldConstants,
     ongoingNo: FormFieldConstants,
@@ -52,10 +61,7 @@ const researchConstants: {
     citationsLast3Years: FormFieldConstants,
     fundedProjectsCompletedLast3Years: ProjectConstants,
     fundedProjectsOngoing: ProjectConstants,
-    presentedAtConferences: ConferenceConstants,
-    attendedConferences: ConferenceConstants,
-    organizedConferences: ConferenceConstants,
-    totalConferencePapers: FormFieldConstants,
+    conferenceSection: ConferenceConstants,
     completedGuidance: GuidanceConstants,
     underSupervisionGuidance: GuidanceConstants,
     patents: PatentConstants,
@@ -195,71 +201,73 @@ const researchConstants: {
             tooltip: "Amount",
         },
     },
-    presentedAtConferences: {
-        total: {
-            name: "presentedAtConferencesTotal",
-            label: "Total",
-            placeholder: "Total",
-            tooltip: "Total",
+    conferenceSection: {
+        presentedAtConferences: {
+            total: {
+                name: "presentedAtConferencesTotal",
+                label: "Total",
+                placeholder: "Total",
+                tooltip: "Total",
+            },
+            national: {
+                name: "presentedAtConferencesNational",
+                label: "National",
+                placeholder: "National",
+                tooltip: "National",
+            },
+            international: {
+                name: "presentedAtConferencesInternational",
+                label: "International",
+                placeholder: "International",
+                tooltip: "International",
+            },
         },
-        national: {
-            name: "presentedAtConferencesNational",
-            label: "National",
-            placeholder: "National",
-            tooltip: "National",
+        attendedConferences: {
+            total: {
+                name: "attendedConferencesTotal",
+                label: "Total",
+                placeholder: "Total",
+                tooltip: "Total",
+            },
+            national: {
+                name: "attendedConferencesNational",
+                label: "National",
+                placeholder: "National",
+                tooltip: "National",
+            },
+            international: {
+                name: "attendedConferencesInternational",
+                label: "International",
+                placeholder: "International",
+                tooltip: "International",
+            },
         },
-        international: {
-            name: "presentedAtConferencesInternational",
-            label: "International",
-            placeholder: "International",
-            tooltip: "International",
+        organizedConferences: {
+            total: {
+                name: "organizedConferencesTotal",
+                label: "Total",
+                placeholder: "Total",
+                tooltip: "Total",
+            },
+            national: {
+                name: "organizedConferencesNational",
+                label: "National",
+                placeholder: "National",
+                tooltip: "National",
+            },
+            international: {
+                name: "organizedConferencesInternational",
+                label: "International",
+                placeholder: "International",
+                tooltip: "International",
+            },
         },
-    },
-    attendedConferences: {
-        total: {
-            name: "attendedConferencesTotal",
-            label: "Total",
-            placeholder: "Total",
-            tooltip: "Total",
+        totalConferences: {
+            name: "totalConferences",
+            label: "Total Conferences",
+            placeholder: "Total Conferences",
+            tooltip: "Total Conferences",
         },
-        national: {
-            name: "attendedConferencesNational",
-            label: "National",
-            placeholder: "National",
-            tooltip: "National",
-        },
-        international: {
-            name: "attendedConferencesInternational",
-            label: "International",
-            placeholder: "International",
-            tooltip: "International",
-        },
-    },
-    organizedConferences: {
-        total: {
-            name: "organizedConferencesTotal",
-            label: "Total",
-            placeholder: "Total",
-            tooltip: "Total",
-        },
-        national: {
-            name: "organizedConferencesNational",
-            label: "National",
-            placeholder: "National",
-            tooltip: "National",
-        },
-        international: {
-            name: "organizedConferencesInternational",
-            label: "International",
-            placeholder: "International",
-            tooltip: "International",
-        },
-    },
-    totalConferencePapers: {
-        name: "totalConferencePapers",
-        label: "Total Conference Papers",
-        placeholder: "Total Conference Papers",
-        tooltip: "Total Conference Papers",
     },
     completedGuidance: {
         independentMPhil: {
@@ -314,6 +322,12 @@ const researchConstants: {
         },
     },
     patents: {
+        yesCheckbox: {
+            name: "patentsYesCheckbox",
+            label: "Patents",
+            placeholder: "Patents",
+            tooltip: "Patents",
+        },
         details: {
             name: "patentsDetails",
             label: "Details",
@@ -334,6 +348,12 @@ const researchConstants: {
         },
     },
     consultancy: {
+        yesCheckbox: {
+            name: "consultancyYesCheckbox",
+            label: "Consultancy",
+            placeholder: "Consultancy",
+            tooltip: "Consultancy",
+        },
         completedNo: {
             name: "consultancyCompletedNo",
             label: "Completed No",
@@ -362,4 +382,5 @@ const researchConstants: {
 }
 
 export default researchConstants
-export { fieldNamePrefix }
+export {fieldNamePrefix};
+export type { PublicationConstants, ProjectConstants, ConferenceConstants, GuidanceConstants, PatentConstants, ConsultancyConstants};
