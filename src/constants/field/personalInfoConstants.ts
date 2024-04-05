@@ -62,6 +62,7 @@ const personalInfoConstants: {
         placeholder: 'Email ID'
     },
     currentAddress: {
+        prefix: 'currentResidence',
         country: {
             name: 'currentResidence.country',
             label: 'Country',
@@ -94,6 +95,7 @@ const personalInfoConstants: {
         },
     },
     permanentAddress: {
+        prefix: 'permanentResidence',
         country: {
             name: 'permanentResidence.country',
             label: 'Country',
