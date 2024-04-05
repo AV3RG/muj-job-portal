@@ -6,8 +6,11 @@ import {cn} from "@/lib/utils";
 
 export default function FormSection(props: FormSectionProps) {
 
-    const contentRendered = (child: React.JSX.Element) => {
+    const contentRendered = (child: React.JSX.Element | false) => {
         if (child === null || child === undefined) {
+            return <></>
+        }
+        if (child === false) {
             return <></>
         }
         if (child.type && child.type === React.Fragment) {

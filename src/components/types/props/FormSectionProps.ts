@@ -5,7 +5,7 @@ import FormRenderProps from "./FormRenderProps";
 
 type FormSectionProps = {
     form: UseFormReturn<any, undefined, any>,
-    children: React.JSX.Element | React.JSX.Element[],
+    children: React.JSX.Element | React.JSX.Element[] | false,
     fieldNamePrefix: string,
     className?: TailwindClass,
     type: "div" | "fragment"

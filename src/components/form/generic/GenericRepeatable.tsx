@@ -14,7 +14,7 @@ export default function GenericRepeatable(props: FormRepeatableProps) {
     return <div className={"flex flex-col gap-y-4 w-full"}>
         <div>
             {Array.from({length: size}, (_, index) => {
-                return <div className={"flex flex-col gap-y-4 w-full"}>
+                return <div className={"flex flex-col gap-y-4 w-full"} key={index}>
                     <div className={cn("grid grid-cols-6 gap-x-8 gap-y-4", props.itemsClassName)}>
                         {props.children.map((child) => {
                             return <FormSection form={form} fieldNamePrefix={`${props.fieldNamePrefix}.${index}`} key={index} {...props.formSectionProps}>

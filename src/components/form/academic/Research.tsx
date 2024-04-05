@@ -4,7 +4,9 @@ import GenericInput from "../generic/GenericInput";
 import researchConstants, {
     ConferenceConstants,
     ConsultancyConstants,
-    fieldNamePrefix, GuidanceConstants, PatentConstants,
+    fieldNamePrefix,
+    GuidanceConstants,
+    PatentConstants,
     ProjectConstants,
     PublicationConstants
 } from "@/constants/field/researchConstants";
@@ -229,7 +231,7 @@ export default function Research(props: FormAccordionProps) {
 
                 <span className={"text-lg"}>Consultancy</span>
                 <ConsultancyComponent form={props.form} constants={researchConstants.consultancy}/>
-                
+
 
             </div>
         </AccordionContent>
