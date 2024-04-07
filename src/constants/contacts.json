@@ -23,8 +23,48 @@
     "Email ID": ["office.chiefwarden@jaipur.manipal.edu"]
   },
   {
-    "Office": "Chief Office (General Services & Administration)",
+    "Office": "Chief Officer (General Services & Administration)",
     "Extension": [119, 105],
     "Email ID": ["admin.office@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Chief Finance Officer",
+    "Extension": [252, 236, 139],
+    "Email ID": ["fin.muj@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Human Resources",
+    "Extension": [666, 253, 728],
+    "Email ID": ["hr.muj@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "IT Infra",
+    "Extension": [778, 300],
+    "Email ID": ["it.support@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Library",
+    "Extension": [179],
+    "Email ID": ["library@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Registrar Office",
+    "Extension": [134, 225],
+    "Email ID": ["registrar.office@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Student Welfare",
+    "Extension": [327, 207],
+    "Email ID": ["dean.dswmuj@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Training & Placement",
+    "Extension": [751],
+    "Email ID": ["tpo@jaipur.manipal.edu"]
+  },
+  {
+    "Office": "Webmaster",
+    "Extension": [441],
+    "Email ID": ["webmaster@jaipur.manipal.edu"]
   }
 ]
