@@ -6,6 +6,7 @@ type FormLocationProps = Omit<FormInputProps, 'constants'> & {
     constants: FormLocationConstants,
     formFieldNamePrefix: string,
     containerClassName?: TailwindClass,
+    addressField?: boolean
 }
 
 export default FormLocationProps;

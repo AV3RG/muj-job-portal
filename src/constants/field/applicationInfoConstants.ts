@@ -33,6 +33,5 @@ const applicationInfoConstants: {
         placeholder: '',
     }
 }
-
 export default applicationInfoConstants;
 export { fieldNamePrefix };

@@ -64,7 +64,7 @@ const personalInfoConstants: {
     currentAddress: {
         prefix: 'currentResidence',
         country: {
-            name: 'currentResidence.country',
+            name: 'country',
             label: 'Country',
             tooltip: 'Enter your country of residence',
             placeholder: 'Country',
@@ -72,7 +72,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No Countries Found'
         },
         state: {
-            name: 'currentResidence.state',
+            name: 'state',
             label: 'State',
             tooltip: 'Enter your state of residence',
             placeholder: 'State',
@@ -80,7 +80,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No States Found'
         },
         city: {
-            name: 'currentResidence.city',
+            name: 'city',
             label: 'City',
             tooltip: 'Enter your city of residence',
             placeholder: 'City',
@@ -88,7 +88,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No Cities Found'
         },
         address: {
-            name: 'currentResidence.address',
+            name: 'address',
             label: 'Address',
             tooltip: 'Enter your current address of residence',
             placeholder: 'Full Address',
@@ -97,7 +97,7 @@ const personalInfoConstants: {
     permanentAddress: {
         prefix: 'permanentResidence',
         country: {
-            name: 'permanentResidence.country',
+            name: 'country',
             label: 'Country',
             tooltip: 'Enter your country of residence',
             placeholder: 'Country',
@@ -105,7 +105,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No Countries Found'
         },
         state: {
-            name: 'permanentResidence.state',
+            name: 'state',
             label: 'State',
             tooltip: 'Enter your state of residence',
             placeholder: 'State',
@@ -113,7 +113,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No States Found'
         },
         city: {
-            name: 'permanentResidence.city',
+            name: 'city',
             label: 'City',
             tooltip: 'Enter your city of residence',
             placeholder: 'City',
@@ -121,7 +121,7 @@ const personalInfoConstants: {
             commandEmptyText: 'No Cities Found'
         },
         address: {
-            name: 'permanentResidence.address',
+            name: 'address',
             label: 'Address',
             tooltip: 'Enter your current address of residence',
             placeholder: 'Full Address'

@@ -9,7 +9,7 @@ import applicationInfoConstants, {fieldNamePrefix} from "@/constants/field/appli
 import GenericSelect from "@/components/form/generic/GenericSelect";
 import designations from "@/constants/designations.json"
 import faculties from "@/constants/faculties.json"
-import {useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import GenericInput from "@/components/form/generic/GenericInput";
 import fieldWatcher from "@/util/fieldWatcher";
 
@@ -29,15 +29,24 @@ export default function ApplicationInfo(props: FormAccordionProps) {
         return []
     }, [facultiesTyped, facultyValue])
 
-    const school = useMemo(() => {
+    function schoolCalculator() {
         if (facultyValue && departmentValue) {
             const schoolsObject = facultiesTyped[facultyValue];
             return Object.keys(schoolsObject).find((school: string) => {
                 return schoolsObject[school].includes(departmentValue)
-            })
+            }) || null
         }
         return null
-    }, [facultyValue, departmentValue, facultiesTyped])
+    }
+    
+    const [school, setSchool] = useState<string | null>(schoolCalculator())
+    
+    // Cannot use useMemo here because the value of school is dependent on the value of department
+    useEffect(() => {
+        const newVal = schoolCalculator()
+        setSchool(newVal)
+        props.form.setValue([fieldNamePrefix, applicationInfoConstants.school.name].join("."), newVal)
+    }, [facultyValue, departmentValue, facultiesTyped, schoolCalculator]);
 
     return <AccordionItem value={props.index.toString()}>
             <AccordionTrigger>{props.index}. Application Type</AccordionTrigger>

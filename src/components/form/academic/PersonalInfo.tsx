@@ -35,19 +35,24 @@ export default function PersonalInfo(props: FormAccordionProps) {
                 <GenericInput constants={personalInfoConstants.email}/>
             </FormSection>
             <Separator orientation={"horizontal"}/>
-            <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
-                <GenericAddressCombo constants={personalInfoConstants.permanentAddress} customRender={true} formFieldNamePrefix={personalInfoConstants.permanentAddress.prefix} containerClassName={"flex gap-x-8 gap-y-4 flex-wrap"}/>
+            <FormSection form={props.form} fieldNamePrefix={[fieldNamePrefix, personalInfoConstants.permanentAddress.prefix].join(".")} className={"grid grid-cols-6"}>
+                <GenericAddressCombo constants={personalInfoConstants.permanentAddress}
+                                     customRender={true}
+                                     formFieldNamePrefix={[fieldNamePrefix, personalInfoConstants.permanentAddress.prefix].join(".")}
+                                     containerClassName={"flex gap-x-8 gap-y-4 flex-wrap"}
+                />
                 <GenericTextArea constants={personalInfoConstants.permanentAddress.address}/>
                 <GenericCheckBox constants={personalInfoConstants.sameAddress}/>
             </FormSection>
             <Separator orientation={"horizontal"}/>
             {sameAddress ||
                 <>
-                    <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix} className={"grid grid-cols-6"}>
+                    <FormSection form={props.form} fieldNamePrefix={[fieldNamePrefix, personalInfoConstants.currentAddress.prefix].join(".")} className={"grid grid-cols-6"}>
                         <GenericAddressCombo constants={personalInfoConstants.currentAddress}
                                              customRender={true}
-                                             formFieldNamePrefix={personalInfoConstants.currentAddress.prefix}
-                                             containerClassName={"flex-none gap-0"}/>
+                                             formFieldNamePrefix={[fieldNamePrefix, personalInfoConstants.currentAddress.prefix].join(".")}
+                                             containerClassName={"flex-none gap-0"}
+                        />
                         <GenericTextArea constants={personalInfoConstants.currentAddress.address}/>
                     </FormSection>
                     <Separator orientation={"horizontal"}/>
