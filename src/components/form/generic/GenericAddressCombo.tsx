@@ -3,10 +3,12 @@ import React from "react";
 import GenericComboBox from "./GenericComboBox";
 import FormSection from "../FormSection";
 import formFormAssertion from "@/util/assert/formFormAssertion";
+import formFieldNameAssertion from "@/util/assert/formFieldNameAssertion";
 
 export default function GenericAddressCombo(props: FormLocationProps) {
 
     const form = formFormAssertion(props.form)
+    const fieldNamePrefix = formFieldNameAssertion(props.fieldNamePrefix)
 
     const countries = React.useMemo(() => {
         return ["Testing Country"]
@@ -31,7 +33,7 @@ export default function GenericAddressCombo(props: FormLocationProps) {
         return [`Testing City ${selectedState}`]
     }, [selectedState, selectedCountry])
 
-    return <FormSection form={form} fieldNamePrefix={props.formFieldNamePrefix} className={props.containerClassName} type={"fragment"}>
+    return <FormSection form={form} fieldNamePrefix={[fieldNamePrefix, props.constants.prefix].join(".")} className={props.containerClassName} type={"fragment"}>
         <GenericComboBox options={countries} constants={props.constants.country}/>
         <GenericComboBox options={states} constants={props.constants.state}/>
         <GenericComboBox options={cities} constants={props.constants.city}/>

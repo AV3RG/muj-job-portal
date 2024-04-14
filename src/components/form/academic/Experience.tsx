@@ -20,12 +20,11 @@ export default function Experience(props: FormAccordionProps) {
         <AccordionContent>
             <div className={"flex flex-col gap-y-6"}>
                 <div className={"text-lg font-bold"}>Academic Experience</div>
-                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                <FormSection form={props.form} fieldNamePrefix={[fieldNamePrefix, academicPrefix].join(".")}>
                     <GenericRepeatable fieldNamePrefix={academicPrefix} formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}>
                         <GenericSelect options={[]} constants={academic.natureOfJob}/>
                         <GenericAddressCombo constants={academic.location}
                                              customRender={true}
-                                             formFieldNamePrefix={academic.location.prefix}
                         />
                         <GenericInput constants={academic.university}/>
                         <GenericInput constants={academic.college}/>
@@ -37,12 +36,11 @@ export default function Experience(props: FormAccordionProps) {
                 </FormSection>
                 <Separator/>
                 <div className={"text-lg font-bold"}>Non Academic Experience</div>
-                <FormSection form={props.form} fieldNamePrefix={fieldNamePrefix}>
+                <FormSection form={props.form} fieldNamePrefix={[fieldNamePrefix, nonAcademicPrefix].join(".")}>
                     <GenericRepeatable fieldNamePrefix={academicPrefix} formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}>
                         <GenericSelect constants={nonAcademic.typeOfJob} options={[]}/>
                         <GenericSelect options={[]} constants={nonAcademic.natureOfJob}/>
-                        <GenericAddressCombo constants={nonAcademic.location} customRender={true}
-                                             formFieldNamePrefix={nonAcademic.location.prefix}/>
+                        <GenericAddressCombo constants={nonAcademic.location} customRender={true}/>
                         <GenericInput constants={nonAcademic.organization}/>
                         <GenericInput constants={nonAcademic.designation}/>
                         <GenericInput constants={nonAcademic.department}/>

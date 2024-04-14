@@ -4,7 +4,7 @@ import TailwindClass from "@/components/types/TailwindClass";
 
 type FormLocationProps = Omit<FormInputProps, 'constants'> & {
     constants: FormLocationConstants,
-    formFieldNamePrefix: string,
+    fieldNamePrefix?: string,
     containerClassName?: TailwindClass,
     addressField?: boolean
 }

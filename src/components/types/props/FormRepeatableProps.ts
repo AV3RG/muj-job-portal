@@ -9,7 +9,7 @@ type FormRepeatableProps = FormSectionChildBaseProps & {
     itemsClassName?: TailwindClass,
     buttonsHolderClassName?: TailwindClass,
     form?: UseFormReturn<any, undefined, any>,
-    fieldNamePrefix: string,
+    fieldNamePrefix?: string,
     addButtonRenderer: (size: number, setSize: (value: (((prevState: number) => number) | number)) => void) => React.ReactElement
     removeButtonRenderer: (size: number, setSize: (value: (((prevState: number) => number) | number)) => void) => React.ReactElement,
     separator?: boolean,

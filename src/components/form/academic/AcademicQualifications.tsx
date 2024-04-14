@@ -36,7 +36,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
   const Class10Component = () => {
     return <FormSection form={props.form} fieldNamePrefix={class10FieldNamePrefix} className={"grid grid-cols-6 w-full"}>
-      <GenericAddressCombo constants={class10.location} customRender={true} formFieldNamePrefix={class10.location.prefix}/>
+      <GenericAddressCombo constants={class10.location} customRender={true}/>
       <GenericSelect options={educationModes} constants={class10.educationMode} form={props.form}/>
       <GenericInput constants={class10.school} />
       <GenericInput constants={class10.board} />
@@ -48,7 +48,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
   const Class12Component = () => {
     return <FormSection form={props.form} fieldNamePrefix={class12FieldNamePrefix} className={"grid grid-cols-6 w-full"}>
-      <GenericAddressCombo constants={class12.location} customRender={true} formFieldNamePrefix={class12.location.prefix}/>
+      <GenericAddressCombo constants={class12.location} customRender={true}/>
       <GenericSelect options={educationModes} constants={class12.educationMode} form={props.form}/>
       <GenericInput constants={class12.school} />
       <GenericInput constants={class12.board} />
@@ -62,10 +62,9 @@ export default function AcademicQualifications(props: FormAccordionProps) {
   const GraduationComponent = () => {
     return <FormSection form={props.form} fieldNamePrefix={graduationFieldNamePrefix} className={"block gap-0 w-full"}>
       <GenericRepeatable fieldNamePrefix={graduationFieldNamePrefix}
-                         customRender={true}
                          formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
       >
-        <GenericAddressCombo constants={graduation.location} customRender={true} formFieldNamePrefix={graduation.location.prefix}/>
+        <GenericAddressCombo constants={graduation.location} customRender={true}/>
         <GenericSelect constants={graduation.educationMode} options={educationModes}/>
         <GenericInput constants={graduation.university}/>
         <GenericInput constants={graduation.college}/>
@@ -84,7 +83,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                          customRender={true}
                          formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
       >
-        <GenericAddressCombo constants={postGraduation.location} customRender={true} formFieldNamePrefix={postGraduation.location.prefix}/>
+        <GenericAddressCombo constants={postGraduation.location} customRender={true}/>
         <GenericSelect constants={postGraduation.educationMode} options={educationModes}/>
         <GenericInput constants={postGraduation.university}/>
         <GenericInput constants={postGraduation.college}/>
@@ -106,7 +105,7 @@ export default function AcademicQualifications(props: FormAccordionProps) {
                                formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
             >
                 <GenericSelect constants={phd.status} options={[]} />
-                <GenericAddressCombo constants={phd.location} customRender={true} formFieldNamePrefix={phd.location.prefix}/>
+                <GenericAddressCombo constants={phd.location} customRender={true}/>
                 <GenericSelect constants={phd.educationMode} options={educationModes}/>
                 <GenericInput constants={phd.university}/>
                 <GenericInput constants={phd.college}/>
@@ -130,10 +129,10 @@ export default function AcademicQualifications(props: FormAccordionProps) {
 
       const MPhilYesComponent = () => {
             return <FormSection form={props.form} fieldNamePrefix={mPhilFieldNamePrefix} className={"block gap-0 w-full"}>
-                <GenericRepeatable fieldNamePrefix={mPhilFieldNamePrefix} customRender={true}
+                <GenericRepeatable customRender={true}
                                    formSectionProps={{type: "fragment", className: "grid grid-cols-6"}}
                 >
-                    <GenericAddressCombo constants={mPhil.location} formFieldNamePrefix={mPhil.location.prefix} />
+                    <GenericAddressCombo constants={mPhil.location} />
                     <GenericSelect constants={mPhil.educationMode} options={educationModes}/>
                     <GenericInput constants={mPhil.university}/>
                     <GenericInput constants={mPhil.college}/>

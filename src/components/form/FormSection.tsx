@@ -20,7 +20,7 @@ export default function FormSection(props: FormSectionProps) {
         }
         if (child.props.customRender) {
             //Still need to attach custom props
-            return React.cloneElement(child, {form: props.form})
+            return React.cloneElement(child, {form: props.form, fieldNamePrefix: props.fieldNamePrefix})
         }
         if (child.props.constants === undefined) {
             //Probably a div or something
