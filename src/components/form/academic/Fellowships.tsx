@@ -8,6 +8,7 @@ import GenericSelect from "@/components/form/generic/GenericSelect";
 import years from "@/constants/years.json";
 import GenericInput from "@/components/form/generic/GenericInput";
 import {academicPrefix} from "@/constants/field/experienceConstants";
+import fellowShipStatuses from "@/constants/fellowship_statuses.json";
 
 export default function Fellowships(props: FormAccordionProps) {
 
@@ -19,7 +20,7 @@ export default function Fellowships(props: FormAccordionProps) {
                     <GenericInput constants={fellowshipConstants.details} fieldRenderClassName={"col-span-6"}/>
                     <GenericSelect constants={fellowshipConstants.year} options={years}/>
                     <GenericInput constants={fellowshipConstants.amountPerAnnumINR} passDownProps={{type: "number"}}/>
-                    <GenericSelect constants={fellowshipConstants.status} options={[]}/>
+                    <GenericSelect constants={fellowshipConstants.status} options={fellowShipStatuses}/>
                 </GenericRepeatable>
             </FormSection>
         </AccordionContent>

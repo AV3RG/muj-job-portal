@@ -21,6 +21,7 @@ import SubmitSection from "@/components/form/academic/SubmitSection";
 
 export default function Academic() {
 
+
     const form = useForm<zod.infer<typeof formSchema>>({
         resolver: async (data, context, options) => {
             const result = await zodResolver(formSchema)(data, context, options);
