@@ -1,4 +1,4 @@
-import {ZodEffects} from "zod";
+import {ZodEffects, ZodObject, ZodSchema} from "zod";
 
 declare module 'zod' {
     interface ZodString {

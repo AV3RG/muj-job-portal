@@ -2,6 +2,7 @@ import * as zod from 'zod';
 import genders from "@/constants/genders.json"
 import religions from "@/constants/religions.json"
 import maritalStatus from "@/constants/marital_status.json"
+import {zodLocation} from "@/zod/extensions/functions";
 
 export default zod.object({
     firstName: zod.string().nonEmpty().onlyChars(),
@@ -10,18 +11,9 @@ export default zod.object({
     dob: zod.string().nonEmpty().datetime(),
     gender: zod.string().nonEmpty().fromOptions(genders),
     email: zod.string().nonEmpty().email(),
-    currentResidence: zod.object({
-        country: zod.string().nonEmpty().optional(),
-        state: zod.string().nonEmpty().optional(),
-        city: zod.string().nonEmpty().optional(),
-        address: zod.string().nonEmpty().optional(),
-    }),
-    permanentResidence: zod.object({
-        country: zod.string().nonEmpty(),
-        state: zod.string().nonEmpty(),
-        city: zod.string().nonEmpty(),
-        address: zod.string().nonEmpty(),
-    }),
+    currentResidence: zodLocation(true, true),
+    sameAddress: zod.boolean(),
+    permanentResidence: zodLocation(true, false),
     religion: zod.string().nonEmpty().fromOptions(religions),
     maritalStatus: zod.string().nonEmpty().fromOptions(maritalStatus),
     aadhaarCard: zod.string().nonEmpty().length(12).onlyDigits(),
